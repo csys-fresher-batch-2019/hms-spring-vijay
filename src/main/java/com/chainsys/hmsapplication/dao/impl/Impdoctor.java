@@ -31,7 +31,6 @@ public class Impdoctor implements Interfacedoctor {
 			LOGGER.info("rows");
 			System.out.println(addoc.getDoctorid());
 			String sql1 = "insert into overallrating(doctor_id) values(?)";
-
 			try (PreparedStatement pst1 = con.prepareStatement(sql1);) {
 
 				pst1.setInt(1, addoc.getDoctorid());
@@ -60,6 +59,7 @@ public class Impdoctor implements Interfacedoctor {
 			}
 			return s1;
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new Dbexception("selection doctorlist failed");
 		}
 	}
@@ -94,7 +94,7 @@ public ArrayList<Integer> doctorid() throws Dbexception {
 		}
 		return docid;
 	} catch (Exception e) {
-		throw new Dbexception("Selection of distinct doctorlist failed");
+		throw new Dbexception("Selection of distinct doctorlist failed", e);
 	}
 }
 }

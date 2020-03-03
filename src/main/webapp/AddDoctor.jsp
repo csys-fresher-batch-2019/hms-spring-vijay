@@ -1,3 +1,4 @@
+<%@page import="com.chainsys.hmsapplication.service.ServiceSplzations"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.chainsys.hmsapplication.dao.impl.Impspecialization"%>
 <%@page import="com.chainsys.hmsapplication.model.Splzationlist"%>
@@ -46,9 +47,10 @@
 				<td>Enter Doctor Name
 				<td><input type="text" name="docname">
 			</tr>
+			<!-- Impspecialization splizaton = new Impspecialization(); -->
 			<%
-				Impspecialization splizaton = new Impspecialization();
-				ArrayList<Integer> spl = splizaton.getspl();
+				ServiceSplzations splzation=new ServiceSplzations();
+				ArrayList<Integer> spl = splzation.getspl();
 				
 			%>
 			  <c:set var="specializations" value="<%=spl%>"></c:set>

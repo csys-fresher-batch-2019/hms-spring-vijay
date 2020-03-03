@@ -1,3 +1,4 @@
+<%@page import="com.chainsys.hmsapplication.service.ServiceOverall"%>
 <%@page import="com.chainsys.hmsapplication.model.Overallrating"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.chainsys.hmsapplication.dao.impl.Impoverall"%>
@@ -26,8 +27,9 @@
 }
 </style>
 <body>
+<!--Impoverall imp=new Impoverall();  -->
 <% 
-Impoverall imp=new Impoverall();
+ServiceOverall imp=new ServiceOverall();
 ArrayList<Overallrating> list= imp.viewrating();
 %>
 <form action="ViewRatingServlet">

@@ -23,7 +23,9 @@
 }
 </style>
 <body style align="center">
-<%int n=Integer.parseInt(request.getAttribute("fees").toString());%>
+<%
+int n=Integer.parseInt(request.getAttribute("fees").toString());
+%>
 <h2>Your Total amount =  <%=n %></h2>
 <a href="AddRating.jsp" class="button">Rating</a>
 <a href="index.jsp" class="button">skip</a>

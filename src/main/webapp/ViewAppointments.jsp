@@ -1,8 +1,8 @@
+<%@page import="com.chainsys.hmsapplication.model.Appointmentlist"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="com.vijaysankar.hmgsystems.appointment.*"%>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.vijaysankar.hmgsystems.appointment.*"%>
+<%@page import="com.chainsys.hmsapplication.service.ServiceAppointment"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html >
@@ -39,8 +39,11 @@
 </style>
 <body>
 
+
+<!-- Impappointment obj = new Impappointment(); -->
+
 <%
-Impappointment obj = new Impappointment();
+ServiceAppointment obj=new ServiceAppointment();
 ArrayList<Appointmentlist> list = obj.viewpendingapp();
 %>
 <form action = "AppointmentStatusServlet">

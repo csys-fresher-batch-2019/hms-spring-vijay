@@ -1,3 +1,4 @@
+<%@page import="com.chainsys.hmsapplication.service.ServiceAppointment"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.chainsys.hmsapplication.dao.impl.Impappointment"%>
 <%@page import="com.chainsys.hmsapplication.model.Appointmentlist"%>
@@ -26,8 +27,9 @@
 }
 </STYLE>
 <body>
+<!--Impappointment obj = new Impappointment();  -->
 <%
-Impappointment obj = new Impappointment();
+ServiceAppointment obj=new ServiceAppointment();
 ArrayList<Appointmentlist> list = obj.viewapp();
 %>
 <form action = "ViewAllAppointmentServlet">

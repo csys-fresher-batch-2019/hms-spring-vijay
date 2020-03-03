@@ -1,10 +1,11 @@
+<%@page import="com.chainsys.hmsapplication.service.ServiceSplzations"%>
 <%@page import="com.chainsys.hmsapplication.model.Splzationlist"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.chainsys.hmsapplication.dao.impl.Impspecialization"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html >
 <html>
 <head>
@@ -26,32 +27,33 @@
 }
 </style>
 <body>
-<%
-Impspecialization imp= new Impspecialization();
-ArrayList<Splzationlist> list=imp.viewspl();
-%>
 
-<form action = "ViewSpecializationServlet">
-<table border="1">
-<thead>
-<tr>
-<th>Specialization ID</th>
-<th>Specialization Name</th>
-</tr>
-</thead>
-<tbody>
-<%
-for (Splzationlist rs : list) {
-%>
-<tr>
-<td><%=rs.getSplzationid() %></td>
-<td><%=rs.getSplzationname() %></td>
-</tr>
+	<!-- Impspecialization imp= new Impspecialization(); -->
+	<%
+		ServiceSplzations imp = new ServiceSplzations();
+		ArrayList<Splzationlist> list = imp.viewspl();
+	%>
 
-<%
-}
-%>
-<a href="index.jsp" class="buttons">MAIN MENU</a>
+	<form action="ViewSpecializationServlet">
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Specialization ID</th>
+					<th>Specialization Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%
+					for (Splzationlist rs : list) {
+				%>
+				<tr>
+					<td><%=rs.getSplzationid()%></td>
+					<td><%=rs.getSplzationname()%></td>
+				</tr>
 
+				<%
+					}
+				%>
+				<a href="index.jsp" class="buttons">MAIN MENU</a>
 </body>
 </html>

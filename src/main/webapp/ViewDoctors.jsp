@@ -1,3 +1,4 @@
+<%@page import="com.chainsys.hmsapplication.service.ServiceDoctor"%>
 <%@page import="com.chainsys.hmsapplication.model.Doctorlist"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.chainsys.hmsapplication.dao.impl.Impdoctor"%>
@@ -26,8 +27,9 @@
 }
 </style>
 <body>
+<!-- Impdoctor doc=new Impdoctor(); -->
 <%
-Impdoctor doc=new Impdoctor();
+ServiceDoctor doc=new ServiceDoctor();
 ArrayList<Doctorlist> list=doc.viewdoctor();
 %>
 <form action="ViewDoctorServlet">
