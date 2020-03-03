@@ -1,5 +1,5 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.chainsys.hmsapplication.dao.impl.Impdoctor"%>
+<%@page import="com.chainsys.hmsapplication.service.ServiceDoctor"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -36,8 +36,9 @@
 <td>Enter purpose:
 <td><input type="text" name="purpose" placeholder="enter purpose" >
 </tr>
+<!--  Impdoctor doc = new Impdoctor();-->
 <%
-					Impdoctor doc = new Impdoctor();
+					ServiceDoctor doc=new ServiceDoctor();
 					ArrayList<Integer> doctorid = doc.doctorid();
 				%>
 <tr><td>Enter doctor id:
