@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.service.ServiceOverall;
 
+
 @WebServlet("/ViewRatingServlet")
 
 public class ViewRatingServlet extends HttpServlet {

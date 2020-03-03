@@ -11,15 +11,14 @@ import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Appointmentlist;
 @Service
 public class ServiceAppointment {
-	@Autowired
+	
 	
 	Interfaceapp la = new Impappointment();
 	
 	public void addappointment(Appointmentlist a) throws Dbexception{
 		
 		la.addappointment(a);
-		
-	}
+			}
 	public void updateappointment(int pid) throws Dbexception{
 		la.updateappointment(pid);
 		

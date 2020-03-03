@@ -34,7 +34,7 @@ public class Appointmentservlet extends HttpServlet {
 
 		Appointmentlist li = new Appointmentlist();
 		
-		ServiceAppointment lu= new ServiceAppointment();
+		
 		
 		li.setAppid(Randomnumber.getrandom());
 		int patientId = Integer.parseInt(patientIdstr);
@@ -50,6 +50,7 @@ public class Appointmentservlet extends HttpServlet {
 		// Mail obj=new Mail();
 		// obj.send(from, password, to, sub, appid, patientid, doctorid, appdate,
 		// apptime);
+		ServiceAppointment lu= new ServiceAppointment();
 		try {
 			System.out.println(li);
 			lu.addappointment(li);
@@ -57,7 +58,6 @@ public class Appointmentservlet extends HttpServlet {
 					li.getEmail());
 
 		} catch (Dbexception e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		response.sendRedirect("Mailsent.jsp");
