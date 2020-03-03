@@ -1,6 +1,6 @@
-<%@page import="com.vijaysankar.hmgsystems.overallrating.Overallrating"%>
+<%@page import="com.chainsys.hmsapplication.model.Overallrating"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.vijaysankar.hmgsystems.overallrating.Impoverall"%>
+<%@page import="com.chainsys.hmsapplication.dao.impl.Impoverall"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

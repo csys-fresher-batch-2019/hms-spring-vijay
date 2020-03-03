@@ -1,14 +1,16 @@
 package com.hmgsystem;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.vijaysankar.hmgsystems.dbexception.Dbexception;
-import com.vijaysankar.hmgsystems.splzations.Impspecialization;
+import com.chainsys.hmsapplication.exception.Dbexception;
+import com.chainsys.hmsapplication.service.ServiceSplzations;
+
 @WebServlet("/ViewSpecializationServlet")
 
 public class ViewSpecializationServlet extends HttpServlet {
@@ -16,9 +18,9 @@ public class ViewSpecializationServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		
-		Impspecialization imp= new Impspecialization();
+
+		// Impspecialization imp= new Impspecialization();
+		ServiceSplzations imp = new ServiceSplzations();
 		try {
 			imp.viewspl();
 		} catch (Dbexception e) {

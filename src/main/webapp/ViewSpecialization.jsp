@@ -1,6 +1,6 @@
-<%@page import="com.vijaysankar.hmgsystems.splzations.Splzationlist"%>
+<%@page import="com.chainsys.hmsapplication.model.Splzationlist"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.vijaysankar.hmgsystems.splzations.Impspecialization"%>
+<%@page import="com.chainsys.hmsapplication.dao.impl.Impspecialization"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

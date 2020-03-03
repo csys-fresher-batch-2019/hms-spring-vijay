@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.vijaysankar.hmgsystems.appointment.Appointmentlist;
-import com.vijaysankar.hmgsystems.appointment.Impappointment;
-import com.vijaysankar.hmgsystems.dbexception.Dbexception;
-import com.vijaysankar.hmgsystems.mail.Mail;
-import com.vijaysankar.hmgsystems.mail.Testconfirm;
+import com.chainsys.hmsapplication.dao.impl.Impappointment;
+import com.chainsys.hmsapplication.exception.Dbexception;
+import com.chainsys.hmsapplication.model.Appointmentlist;
+import com.chainsys.hmsapplication.service.ServiceAppointment;
+import com.chainsys.hmsapplication.util.mail.Mail;
+import com.chainsys.hmsapplication.util.mail.Testconfirm;
 import com.vijaysankar.hmgsystems.randomnumber.Randomnumber;
 
 @WebServlet("/Appointmentservlet")
@@ -32,7 +33,9 @@ public class Appointmentservlet extends HttpServlet {
 		String Email = request.getParameter("email");
 
 		Appointmentlist li = new Appointmentlist();
-		Impappointment la = new Impappointment();
+		
+		ServiceAppointment lu= new ServiceAppointment();
+		
 		li.setAppid(Randomnumber.getrandom());
 		int patientId = Integer.parseInt(patientIdstr);
 		li.setPatientid(patientId);
@@ -49,7 +52,7 @@ public class Appointmentservlet extends HttpServlet {
 		// apptime);
 		try {
 			System.out.println(li);
-			la.addappointment(li);
+			lu.addappointment(li);
 			Testconfirm.main(li.getAppid(), li.getPatientid(), li.getDoctorid(), li.getAppdate(), li.getApptime(),
 					li.getEmail());
 

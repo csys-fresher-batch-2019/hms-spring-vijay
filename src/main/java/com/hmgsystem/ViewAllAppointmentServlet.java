@@ -1,31 +1,32 @@
 package com.hmgsystem;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.vijaysankar.hmgsystems.appointment.Impappointment;
-import com.vijaysankar.hmgsystems.dbexception.Dbexception;
+import com.chainsys.hmsapplication.exception.Dbexception;
+import com.chainsys.hmsapplication.service.ServiceAppointment;
+
 @WebServlet("/ViewAllAppointmentServlet")
 
 public class ViewAllAppointmentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-  
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		Impappointment impapp = new Impappointment();
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// Impappointment impapp = new Impappointment();
+		ServiceAppointment impapp = new ServiceAppointment();
 		try {
 			impapp.viewapp();
 		} catch (Dbexception e) {
 			e.printStackTrace();
 		}
-		
-		
-	}
 
+	}
 
 }

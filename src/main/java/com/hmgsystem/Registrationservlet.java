@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.vijaysankar.hmgsystems.patientreg.ImpPatients;
-import com.vijaysankar.hmgsystems.patientreg.Patientreglist;
+import com.chainsys.hmsapplication.model.Patientreglist;
+import com.chainsys.hmsapplication.service.ServicePatient;
 @WebServlet("/Registrationservlet")
 
 public class Registrationservlet extends HttpServlet {
@@ -26,7 +26,8 @@ public class Registrationservlet extends HttpServlet {
 		String phno=request.getParameter("mobile number");
 		
 			
-			ImpPatients obj=new ImpPatients();
+			//ImpPatients obj=new ImpPatients();
+			ServicePatient obj= new ServicePatient();
 			Patientreglist p1= new Patientreglist();
 			p1.setPatientname(Name);
 			long adhar = Long.parseLong(Adhar);

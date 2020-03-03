@@ -1,5 +1,8 @@
 package com.vijaysankar.hmgsystems.util;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Logger {
 
 	public static Logger getInstance() {

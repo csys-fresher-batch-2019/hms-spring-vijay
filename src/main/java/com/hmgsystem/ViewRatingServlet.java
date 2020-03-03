@@ -1,22 +1,26 @@
 package com.hmgsystem;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.vijaysankar.hmgsystems.dbexception.Dbexception;
-import com.vijaysankar.hmgsystems.overallrating.Impoverall;
+import com.chainsys.hmsapplication.exception.Dbexception;
+import com.chainsys.hmsapplication.service.ServiceOverall;
+
 @WebServlet("/ViewRatingServlet")
 
 public class ViewRatingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		
-		Impoverall imp=new Impoverall();
+		ServiceOverall imp = new ServiceOverall();
 		try {
 			imp.viewrating();
 		} catch (Dbexception e) {

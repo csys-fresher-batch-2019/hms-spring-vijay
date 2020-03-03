@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.vijaysankar.hmgsystems.dbexception.Dbexception;
-import com.vijaysankar.hmgsystems.prescription.Impprescription;
-import com.vijaysankar.hmgsystems.prescription.Prescriptionlist;
+import com.chainsys.hmsapplication.exception.Dbexception;
+import com.chainsys.hmsapplication.model.Prescriptionlist;
+import com.chainsys.hmsapplication.service.ServicePrescription;
 @WebServlet("/PrescriptionServlet")
 public class PrescriptionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,7 +30,8 @@ public class PrescriptionServlet extends HttpServlet {
 		String otherfee=request.getParameter("otherfee");
 		int ofee = Integer.parseInt(otherfee);
 		
-		Impprescription imp=new Impprescription();
+		//Impprescription imp=new Impprescription();
+		ServicePrescription imp=new ServicePrescription();
 		Prescriptionlist pres= new Prescriptionlist();
 		pres.setPatientname(Patientname);
 		pres.setDoctorname(Doctorname);
