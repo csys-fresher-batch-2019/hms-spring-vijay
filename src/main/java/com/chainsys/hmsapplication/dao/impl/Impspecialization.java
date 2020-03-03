@@ -24,7 +24,8 @@ public class Impspecialization implements Interfacespl {
 	public void addspecialization(Splzationlist adspl) throws Dbexception {
 
 		String sql = "insert into splzations values(?,?)";
-		try (Connection con = connections.TestConnections(); PreparedStatement pst = con.prepareStatement(sql);) {
+		try (Connection con = connections.TestConnections(); 
+				PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setInt(1, adspl.getSplzationid());
 			pst.setString(2, adspl.getSplzationname());
 			int rows = pst.executeUpdate();
@@ -40,7 +41,8 @@ public class Impspecialization implements Interfacespl {
 
 		String sql = "select * from splzations";
 		ArrayList<Splzationlist> s1 = new ArrayList<Splzationlist>();
-		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
+		try (Connection con = connections.TestConnections(); 
+				Statement stmt = con.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
 					Splzationlist splli = new Splzationlist();
