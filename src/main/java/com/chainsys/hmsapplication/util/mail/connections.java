@@ -1,4 +1,4 @@
-package com.vijaysankar.hmgsystems.patientreg;
+package com.chainsys.hmsapplication.util.mail;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,4 +1,4 @@
-package com;
+package com.chainsys.hmsapplication.util;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,5 +17,4 @@ public class HmsystemappApplication extends SpringBootServletInitializer{
 	public static void main(String[] args) {
 		SpringApplication.run(HmsystemappApplication.class, args);
 	}
-
 }

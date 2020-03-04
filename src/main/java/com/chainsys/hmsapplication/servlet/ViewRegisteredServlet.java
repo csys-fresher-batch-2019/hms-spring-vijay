@@ -1,4 +1,4 @@
-package com.hmgsystem;
+package com.chainsys.hmsapplication.servlet;
 
 import java.io.IOException;
 
@@ -9,21 +9,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.service.ServiceAppointment;
+import com.chainsys.hmsapplication.service.ServicePatient;
 
-@WebServlet("/ViewAllAppointmentServlet")
+@WebServlet("/ViewRegisteredServlet")
 
-public class ViewAllAppointmentServlet extends HttpServlet {
+public class ViewRegisteredServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// Impappointment impapp = new Impappointment();
-		ServiceAppointment impapp = new ServiceAppointment();
+		// ImpPatients patient=new ImpPatients();
+		ServicePatient patient = new ServicePatient();
 		try {
-			impapp.viewapp();
+			patient.viewpatient();
 		} catch (Dbexception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

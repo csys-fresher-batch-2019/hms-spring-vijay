@@ -1,4 +1,4 @@
-package com.vijaysankar.hmgsystems.randomnumber;
+package com.chainsys.hmsapplication.randomnumber;
 
 import java.security.SecureRandom;
 

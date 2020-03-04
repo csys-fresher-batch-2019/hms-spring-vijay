@@ -1,4 +1,4 @@
-package com.hmgsystem;
+package com.chainsys.hmsapplication.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

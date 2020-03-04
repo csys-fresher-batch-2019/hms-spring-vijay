@@ -28,11 +28,11 @@ public class AppointmentController {
 	}
 
 	@GetMapping("/ViewAppointments")
-	public ArrayList<Appointmentlist> viewapp()  {
+	public ArrayList<Appointmentlist> viewapp() {
 
 		ArrayList<Appointmentlist> list = null;
 		try {
-			return list= app.viewapp();
+			return list = app.viewapp();
 		} catch (Dbexception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

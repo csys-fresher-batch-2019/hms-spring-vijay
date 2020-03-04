@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.chainsys.hmsapplication.dao.Interfaceapp;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Appointmentlist;
-import com.vijaysankar.hmgsystems.patientreg.connections;
+import com.chainsys.hmsapplication.util.mail.*;
 
 @Repository
 public class Impappointment implements Interfaceapp {
