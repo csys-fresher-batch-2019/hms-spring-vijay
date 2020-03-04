@@ -6,13 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chainsys.hmsapplication.dao.Interfaceprescription;
-import com.chainsys.hmsapplication.dao.impl.Impprescription;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Prescriptionlist;
 @Service
 public class ServicePrescription {
 	@Autowired
-	Interfaceprescription pres = new Impprescription();
+	Interfaceprescription pres;
 
 	public void addData(Prescriptionlist L) throws Dbexception {
 		pres.addData(L);

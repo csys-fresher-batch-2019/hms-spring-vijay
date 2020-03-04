@@ -6,14 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chainsys.hmsapplication.dao.Interfaceoverallrating;
-import com.chainsys.hmsapplication.dao.impl.Impoverall;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Overallrating;
 @Service
 public class ServiceOverall {
 	@Autowired
 
-	Interfaceoverallrating imp = new Impoverall();
+	Interfaceoverallrating imp ;
 
 	public void syncrating(int doctorid) throws Dbexception {
 		imp.syncrating(doctorid);

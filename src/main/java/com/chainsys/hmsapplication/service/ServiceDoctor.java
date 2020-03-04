@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chainsys.hmsapplication.dao.Interfacedoctor;
-import com.chainsys.hmsapplication.dao.impl.Impdoctor;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Doctorlist;
+
 @Service
 public class ServiceDoctor {
 	@Autowired
 
-	Interfacedoctor docs = new Impdoctor();
+	Interfacedoctor docs;
 
 	public void adddoctor(Doctorlist addoc) throws Dbexception {
 		docs.adddoctor(addoc);
