@@ -19,8 +19,13 @@ public class AppointmentController {
 
 	
 			app.updateappointment(appid);
-	
-	
 	}
+	
+	@PostMapping("/UpdateAppointmentVisited")
+	public void updatevisited(@RequestParam("app_id") int aid) throws Dbexception {
 
+		
+		app.updatevisited(aid);
+}
+	
 }
