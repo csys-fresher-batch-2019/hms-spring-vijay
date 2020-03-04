@@ -1,4 +1,4 @@
-package com.chainsys.config;
+package com.chainsys.hmsapplication.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

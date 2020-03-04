@@ -28,7 +28,9 @@ public class Registrationservlet extends HttpServlet {
 			
 			//ImpPatients obj=new ImpPatients();
 			ServicePatient obj= new ServicePatient();
+			
 			Patientreglist p1= new Patientreglist();
+			
 			p1.setPatientname(Name);
 			long adhar = Long.parseLong(Adhar);
 			p1.setAdharno(adhar);
