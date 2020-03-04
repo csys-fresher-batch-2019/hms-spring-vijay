@@ -2,16 +2,16 @@ package com.chainsys.hmsapplication.service;
 
 import java.util.ArrayList;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chainsys.hmsapplication.dao.Interfaceapp;
+import com.chainsys.hmsapplication.dao.impl.Impappointment;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Appointmentlist;
 @Service
 public class ServiceAppointment {
-	@Autowired
-	Interfaceapp la ;
+	
+	Interfaceapp la = new Impappointment();
 	
 	public void addappointment(Appointmentlist a) throws Dbexception{
 		

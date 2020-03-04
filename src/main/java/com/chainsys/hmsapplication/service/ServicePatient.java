@@ -12,7 +12,8 @@ import com.chainsys.hmsapplication.model.Patientreglist;
 @Service
 public class ServicePatient {
 	@Autowired
-	InterfacePatients patient ;
+	InterfacePatients patient = new ImpPatients();
+
 	public void addpatient(Patientreglist p) throws Dbexception {
 		patient.addpatient(p);
 
