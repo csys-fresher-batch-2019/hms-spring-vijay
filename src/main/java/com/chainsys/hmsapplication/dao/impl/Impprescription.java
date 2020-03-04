@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.chainsys.hmsapplication.dao.Interfaceprescription;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Prescriptionlist;
-import com.chainsys.hmsapplication.util.mail.*;
+import com.chainsys.hmsapplication.util.*;
 
 @Repository
 public class Impprescription implements Interfaceprescription {

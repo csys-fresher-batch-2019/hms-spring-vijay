@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.chainsys.hmsapplication.dao.Interfaceoverallrating;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Overallrating;
-import com.chainsys.hmsapplication.util.mail.*;
+import com.chainsys.hmsapplication.util.*;
 
 @Repository
 public class Impoverall implements Interfaceoverallrating {

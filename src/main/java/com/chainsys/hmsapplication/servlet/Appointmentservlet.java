@@ -15,8 +15,8 @@ import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Appointmentlist;
 import com.chainsys.hmsapplication.randomnumber.Randomnumber;
 import com.chainsys.hmsapplication.service.ServiceAppointment;
-import com.chainsys.hmsapplication.util.mail.Mail;
-import com.chainsys.hmsapplication.util.mail.Testconfirm;
+import com.chainsys.hmsapplication.util.Mail;
+import com.chainsys.hmsapplication.util.Testconfirm;
 
 @WebServlet("/Appointmentservlet")
 public class Appointmentservlet extends HttpServlet {

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.chainsys.hmsapplication.dao.InterfacePatients;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Patientreglist;
-import com.chainsys.hmsapplication.util.mail.*;
+import com.chainsys.hmsapplication.util.*;
 
 
 @Repository

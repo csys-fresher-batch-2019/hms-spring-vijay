@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.chainsys.hmsapplication.dao.Interfaceadduserrating;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Userrating;
-import com.chainsys.hmsapplication.util.mail.*; 
+import com.chainsys.hmsapplication.util.*; 
 @Repository
 public class Impuserrating implements Interfaceadduserrating {
 

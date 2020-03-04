@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.chainsys.hmsapplication.dao.Interfacespl;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Splzationlist;
-import com.chainsys.hmsapplication.util.mail.*;
+import com.chainsys.hmsapplication.util.*;
 
 @Repository
 public class Impspecialization implements Interfacespl {

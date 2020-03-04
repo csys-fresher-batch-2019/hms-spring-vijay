@@ -1,4 +1,4 @@
-package com.chainsys.hmsapplication.util.mail;
+package com.chainsys.hmsapplication.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
