@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.chainsys.hmsapplication.dao.impl.Impappointment;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Appointmentlist;
+import com.chainsys.hmsapplication.randomnumber.Randomnumber;
 import com.chainsys.hmsapplication.service.ServiceAppointment;
 import com.chainsys.hmsapplication.util.mail.Mail;
 import com.chainsys.hmsapplication.util.mail.Testconfirm;
-import com.vijaysankar.hmgsystems.randomnumber.Randomnumber;
 
 @WebServlet("/Appointmentservlet")
 public class Appointmentservlet extends HttpServlet {
