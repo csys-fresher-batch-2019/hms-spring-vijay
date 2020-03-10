@@ -24,8 +24,8 @@ public class SpecializationServlet extends HttpServlet {
 		String name = request.getParameter("specialname");
 
 		Splzationlist spl = new Splzationlist();
-		//Impspecialization imp = new Impspecialization();
-		ServiceSplzations imp=new ServiceSplzations();
+
+		ServiceSplzations imp = new ServiceSplzations();
 		int add = Integer.parseInt(id);
 		spl.setSplzationid(add);
 		spl.setSplzationname(name);

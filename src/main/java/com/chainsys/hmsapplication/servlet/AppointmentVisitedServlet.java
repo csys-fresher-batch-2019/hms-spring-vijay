@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.hmsapplication.dao.impl.Impappointment;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.service.ServiceAppointment;
+
 @WebServlet("/AppointmentVisitedServlet")
 public class AppointmentVisitedServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -22,8 +22,7 @@ public class AppointmentVisitedServlet extends HttpServlet {
 		String s = request.getParameter("yid");
 		int yid = Integer.parseInt(s);
 		System.out.println(s);
-		//Impappointment impapp = new Impappointment();
-		ServiceAppointment impapp= new ServiceAppointment();
+		ServiceAppointment impapp = new ServiceAppointment();
 		try {
 			impapp.updatevisited(yid);
 		} catch (Dbexception e) {

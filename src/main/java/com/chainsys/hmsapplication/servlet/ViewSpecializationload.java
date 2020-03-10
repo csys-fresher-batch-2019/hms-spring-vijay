@@ -1,7 +1,7 @@
 package com.chainsys.hmsapplication.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,7 +24,7 @@ public class ViewSpecializationload extends HttpServlet {
 		RequestDispatcher sp = null;
 		ServiceSplzations imp = new ServiceSplzations();
 		try {
-			ArrayList<Splzationlist> list = imp.viewspl();
+			List<Splzationlist> list = imp.viewspl();
 
 			request.setAttribute("list", list);
 			sp = request.getRequestDispatcher("ViewSpecialization.jsp");

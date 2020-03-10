@@ -3,19 +3,16 @@ package com.chainsys.hmsapplication.servlet;
 import java.io.IOException;
 import java.time.LocalDate;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.hmsapplication.dao.impl.Impappointment;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Appointmentlist;
 import com.chainsys.hmsapplication.randomnumber.Randomnumber;
 import com.chainsys.hmsapplication.service.ServiceAppointment;
-import com.chainsys.hmsapplication.util.Mail;
 import com.chainsys.hmsapplication.util.Testconfirm;
 
 @WebServlet("/Appointmentservlet")
@@ -33,9 +30,7 @@ public class Appointmentservlet extends HttpServlet {
 		String Email = request.getParameter("email");
 
 		Appointmentlist li = new Appointmentlist();
-		
-		
-		
+
 		li.setAppid(Randomnumber.getrandom());
 		int patientId = Integer.parseInt(patientIdstr);
 		li.setPatientid(patientId);
@@ -50,7 +45,7 @@ public class Appointmentservlet extends HttpServlet {
 		// Mail obj=new Mail();
 		// obj.send(from, password, to, sub, appid, patientid, doctorid, appdate,
 		// apptime);
-		ServiceAppointment lu= new ServiceAppointment();
+		ServiceAppointment lu = new ServiceAppointment();
 		try {
 			System.out.println(li);
 			lu.addappointment(li);

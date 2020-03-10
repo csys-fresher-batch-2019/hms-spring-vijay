@@ -9,23 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.hmsapplication.dao.impl.Impappointment;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.service.ServiceAppointment;
+
 @WebServlet("/AppointmentStatusServlet")
 public class AppointmentStatusServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String s = request.getParameter("pid");
 		int pid = Integer.parseInt(s);
 		System.out.println(s);
-		
-		ServiceAppointment impapp= new ServiceAppointment();
+
+		ServiceAppointment impapp = new ServiceAppointment();
 		try {
 			impapp.updateappointment(pid);
-			RequestDispatcher obj=request.getRequestDispatcher("ViewAppointments.jsp");
+			RequestDispatcher obj = request.getRequestDispatcher("ViewAppointments.jsp");
 			obj.forward(request, response);
 
 		} catch (Dbexception e) {
@@ -33,6 +34,5 @@ public class AppointmentStatusServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-
 
 }

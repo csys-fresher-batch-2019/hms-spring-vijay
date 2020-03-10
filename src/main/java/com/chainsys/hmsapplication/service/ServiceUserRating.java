@@ -7,14 +7,13 @@ import com.chainsys.hmsapplication.dao.Interfaceadduserrating;
 import com.chainsys.hmsapplication.dao.impl.Impuserrating;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Userrating;
+
 @Service
 public class ServiceUserRating {
 	@Autowired
 	Interfaceadduserrating user = new Impuserrating();
 
 	public void addrating(Userrating u) throws Dbexception {
-		user.addrating(u);
-
+		user.addRating(u);
 	}
-
 }

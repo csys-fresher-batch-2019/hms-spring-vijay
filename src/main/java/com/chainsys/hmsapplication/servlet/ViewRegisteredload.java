@@ -1,7 +1,7 @@
 package com.chainsys.hmsapplication.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,26 +17,24 @@ import com.chainsys.hmsapplication.service.ServicePatient;
 @WebServlet("/ViewRegisteredload")
 public class ViewRegisteredload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-  
- 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-	
+
 		ServicePatient pat = new ServicePatient();
 		try {
-			ArrayList<Patientreglist> list = pat.viewpatient();
-			
+			List<Patientreglist> list = pat.viewpatient();
+
 			request.setAttribute("list", list);
-			
-			RequestDispatcher sp= request.getRequestDispatcher("ViewRegisteredPatients.jsp");
+
+			RequestDispatcher sp = request.getRequestDispatcher("ViewRegisteredPatients.jsp");
 			sp.forward(request, response);
 		} catch (Dbexception e) {
-			
+
 			e.printStackTrace();
 		}
 	}
 
-	
 }

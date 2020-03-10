@@ -19,7 +19,6 @@ public class ViewSpecializationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// Impspecialization imp= new Impspecialization();
 		ServiceSplzations imp = new ServiceSplzations();
 		try {
 			imp.viewspl();

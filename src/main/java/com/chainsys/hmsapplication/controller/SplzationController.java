@@ -23,7 +23,7 @@ public class SplzationController {
 		ArrayList<Splzationlist> list=null;
 		
 		try {
-			list=Impspl.viewspl();
+			list=Impspl.viewSpecialization();
 		} catch (Dbexception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -39,7 +39,7 @@ public class SplzationController {
 		spl.setSplzationname(Splzationname);
 		
 		try {
-			Impspl.addspecialization(spl);
+			Impspl.saveSpecialization(spl);
 		} catch (Dbexception e) {
 			e.printStackTrace();
 		}

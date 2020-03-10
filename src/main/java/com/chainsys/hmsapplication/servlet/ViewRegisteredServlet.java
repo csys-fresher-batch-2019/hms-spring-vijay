@@ -19,7 +19,6 @@ public class ViewRegisteredServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// ImpPatients patient=new ImpPatients();
 		ServicePatient patient = new ServicePatient();
 		try {
 			patient.viewpatient();

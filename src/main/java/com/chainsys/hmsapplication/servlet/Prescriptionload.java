@@ -1,7 +1,7 @@
 package com.chainsys.hmsapplication.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,16 +20,16 @@ public class Prescriptionload extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-	ServiceDoctor doc = new ServiceDoctor();
-try {
-	ArrayList<String> doctorlist = doc.doclist();
-	request.setAttribute("doctorlist",doctorlist);
-	
-	RequestDispatcher sp= request.getRequestDispatcher("Prescription.jsp");
-	sp.forward(request, response);
+		ServiceDoctor doc = new ServiceDoctor();
+		try {
+			List<String> doctorlist = doc.doclist();
+			request.setAttribute("doctorlist", doctorlist);
 
-}catch(Dbexception e) {
-	e.printStackTrace();
-}
+			RequestDispatcher sp = request.getRequestDispatcher("Prescription.jsp");
+			sp.forward(request, response);
+
+		} catch (Dbexception e) {
+			e.printStackTrace();
+		}
 	}
 }

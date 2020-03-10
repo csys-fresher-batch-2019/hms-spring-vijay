@@ -1,7 +1,7 @@
 package com.chainsys.hmsapplication.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,27 +13,25 @@ import javax.servlet.http.HttpServletResponse;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.service.ServiceSplzations;
 
-
 @WebServlet("/AddDoctorload")
 public class AddDoctorload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		ServiceSplzations splzation=new ServiceSplzations();
+		ServiceSplzations splzation = new ServiceSplzations();
 		try {
-			ArrayList<Integer> spl = splzation.getspl();
+			List<Integer> spl = splzation.getspl();
 			request.setAttribute("spl", spl);
-			
-			RequestDispatcher sp= request.getRequestDispatcher("AddDoctor.jsp");
+
+			RequestDispatcher sp = request.getRequestDispatcher("AddDoctor.jsp");
 			sp.forward(request, response);
 		} catch (Dbexception e) {
 			e.printStackTrace();
 		}
-	
-	
+
 	}
 
 }

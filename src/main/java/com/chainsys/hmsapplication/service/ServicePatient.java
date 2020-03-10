@@ -1,6 +1,6 @@
 package com.chainsys.hmsapplication.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,19 +9,19 @@ import com.chainsys.hmsapplication.dao.InterfacePatients;
 import com.chainsys.hmsapplication.dao.impl.ImpPatients;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Patientreglist;
+
 @Service
 public class ServicePatient {
 	@Autowired
 	InterfacePatients patient = new ImpPatients();
 
 	public void addpatient(Patientreglist p) throws Dbexception {
-		patient.addpatient(p);
+		patient.savePatient(p);
 
 	}
 
-	public ArrayList<Patientreglist> viewpatient() throws Dbexception {
-		return patient.viewpatient();
+	public List<Patientreglist> viewpatient() throws Dbexception {
+		return patient.viewPatient();
 
 	}
-
 }

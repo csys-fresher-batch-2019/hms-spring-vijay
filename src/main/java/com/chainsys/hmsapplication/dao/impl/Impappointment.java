@@ -4,24 +4,22 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.chainsys.hmsapplication.dao.Interfaceapp;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Appointmentlist;
-import com.chainsys.hmsapplication.util.*;
+import com.chainsys.hmsapplication.util.connections;
 
 @Repository
 public class Impappointment implements Interfaceapp {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Impappointment.class);
-
-	public void addappointment(Appointmentlist adapp) throws Dbexception {
+	public void saveAppointment(Appointmentlist adapp) throws Dbexception {
 
 		String sql = "insert into appointment (app_id,patient_id,purpose,doctor_id,app_date,app_time) values(?,?,?,?,?,?)";
 		try (Connection con = connections.TestConnections(); PreparedStatement pst = con.prepareStatement(sql);) {
@@ -31,37 +29,35 @@ public class Impappointment implements Interfaceapp {
 			pst.setInt(4, adapp.getDoctorid());
 			pst.setDate(5, Date.valueOf(adapp.getAppdate()));
 			pst.setString(6, adapp.getApptime());
-			int rows = pst.executeUpdate();
-			LOGGER.info("rows");
-		} catch (Exception e) {
+			pst.executeUpdate();
+
+		} catch (SQLException e) {
 			throw new Dbexception("Appointment insertion failed", e);
 		}
 	}
 
-	public void updateappointment(int pid) throws Dbexception {
+	public void updateAppointment(int pid) throws Dbexception {
 		String sql = "update appointment set status='approved' where app_id= ?";
 		try (Connection con = connections.TestConnections(); PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setInt(1, pid);
-			int rows = pst.executeUpdate();
-			LOGGER.info("rows");
-		} catch (Exception e) {
+			pst.executeUpdate();
+		} catch (SQLException e) {
 			throw new Dbexception("Appointment approve status failed");
 		}
 	}
 
-	public void updatevisited(int aid) throws Dbexception {
+	public void updateVisited(int aid) throws Dbexception {
 
 		String sql1 = "update appointment set visited = 'yes' where app_id=?";
 		try (Connection con = connections.TestConnections(); PreparedStatement pst = con.prepareStatement(sql1);) {
 			pst.setInt(1, aid);
-			int rows = pst.executeUpdate();
-			LOGGER.info("rows");
-		} catch (Exception e) {
+			pst.executeUpdate();
+		} catch (SQLException e) {
 			throw new Dbexception("Appointment visited status failed");
 		}
 	}
 
-	public ArrayList<Appointmentlist> viewapp() throws Dbexception {
+	public List<Appointmentlist> viewAppointment() throws Dbexception {
 
 		String sql = "select * from appointment order by app_date desc";
 		ArrayList<Appointmentlist> obj = new ArrayList<Appointmentlist>();
@@ -82,12 +78,12 @@ public class Impappointment implements Interfaceapp {
 				}
 			}
 			return obj;
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			throw new Dbexception("selection failed");
 		}
 	}
 
-	public ArrayList<Appointmentlist> viewpendingapp() throws Dbexception {
+	public List<Appointmentlist> viewPendingAppointment() throws Dbexception {
 
 		String sql = "select * from appointment where status='pending' order by app_date desc";
 		ArrayList<Appointmentlist> obj = new ArrayList<Appointmentlist>();
@@ -107,12 +103,12 @@ public class Impappointment implements Interfaceapp {
 				}
 			}
 			return obj;
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			throw new Dbexception("selection failed");
 		}
 	}
 
-	public ArrayList<Appointmentlist> viewstatus() throws Dbexception {
+	public List<Appointmentlist> viewStatus() throws Dbexception {
 
 		String sql = "select * from appointment where status='approved'order by app_date desc";
 		ArrayList<Appointmentlist> obj = new ArrayList<Appointmentlist>();
@@ -132,7 +128,7 @@ public class Impappointment implements Interfaceapp {
 				}
 			}
 			return obj;
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			throw new Dbexception("selection failed");
 		}
 	}

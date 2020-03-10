@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.service.ServiceOverall;
 
-
 @WebServlet("/ViewRatingServlet")
 
 public class ViewRatingServlet extends HttpServlet {
@@ -20,9 +19,8 @@ public class ViewRatingServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		
 		ServiceOverall imp = new ServiceOverall();
-		
+
 		try {
 			imp.viewrating();
 		} catch (Dbexception e) {

@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.hmsapplication.dao.impl.Impdoctor;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Doctorlist;
 import com.chainsys.hmsapplication.service.ServiceDoctor;

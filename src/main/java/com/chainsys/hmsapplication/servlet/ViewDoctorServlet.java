@@ -19,8 +19,7 @@ public class ViewDoctorServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// Impdoctor doc=new Impdoctor();
-		ServiceDoctor doc= new ServiceDoctor();
+		ServiceDoctor doc = new ServiceDoctor();
 		try {
 			doc.viewdoctor();
 		} catch (Dbexception e) {

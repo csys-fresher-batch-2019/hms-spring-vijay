@@ -19,7 +19,6 @@ public class ViewAllAppointmentServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// Impappointment impapp = new Impappointment();
 		ServiceAppointment impapp = new ServiceAppointment();
 		try {
 			impapp.viewapp();

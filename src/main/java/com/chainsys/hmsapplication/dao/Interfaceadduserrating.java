@@ -5,6 +5,6 @@ import com.chainsys.hmsapplication.model.Userrating;
 
 public interface Interfaceadduserrating {
 	
-	public void addrating(Userrating u) throws Dbexception;
+	public void addRating(Userrating u) throws Dbexception;
 
 }

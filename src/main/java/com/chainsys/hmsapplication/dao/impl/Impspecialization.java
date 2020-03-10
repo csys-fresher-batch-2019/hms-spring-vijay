@@ -6,9 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.chainsys.hmsapplication.dao.Interfacespl;
@@ -19,30 +16,26 @@ import com.chainsys.hmsapplication.util.*;
 @Repository
 public class Impspecialization implements Interfacespl {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Impspecialization.class);
-
-	public void addspecialization(Splzationlist adspl) throws Dbexception {
+	public void saveSpecialization(Splzationlist adspl) throws Dbexception {
 
 		String sql = "insert into splzations values(?,?)";
-		try (Connection con = connections.TestConnections(); 
-				PreparedStatement pst = con.prepareStatement(sql);) {
+		try (Connection con = connections.TestConnections(); PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setInt(1, adspl.getSplzationid());
 			pst.setString(2, adspl.getSplzationname());
-			int rows = pst.executeUpdate();
-			LOGGER.info("rows");
+			pst.executeUpdate();
+
 		}
 
-		catch (Exception e) {
+		catch (SQLException e) {
 			throw new Dbexception("Insertion into specialization failed");
 		}
 	}
 
-	public ArrayList<Splzationlist> viewspl() throws Dbexception {
+	public ArrayList<Splzationlist> viewSpecialization() throws Dbexception {
 
 		String sql = "select * from splzations";
 		ArrayList<Splzationlist> s1 = new ArrayList<Splzationlist>();
-		try (Connection con = connections.TestConnections(); 
-				Statement stmt = con.createStatement();) {
+		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
 					Splzationlist splli = new Splzationlist();
@@ -57,7 +50,7 @@ public class Impspecialization implements Interfacespl {
 		}
 	}
 
-	public ArrayList<Integer> getspl() throws Dbexception {
+	public ArrayList<Integer> listSpecialization() throws Dbexception {
 		String sql = "select splzation_id from splzations";
 		ArrayList<Integer> spl = new ArrayList<>();
 		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {

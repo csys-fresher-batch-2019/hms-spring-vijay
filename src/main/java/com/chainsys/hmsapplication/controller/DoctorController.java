@@ -23,7 +23,7 @@ public class DoctorController {
 
 		ArrayList<Doctorlist> ad = null;
 		try {
-			ad = doc.viewdoctor();
+			ad = doc.viewDoctor();
 		} catch (Dbexception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,7 +43,7 @@ public class DoctorController {
 		list.setConsultingfee(confee);
 
 		try {
-			doc.adddoctor(list);
+			doc.saveDoctor(list);
 		} catch (Dbexception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

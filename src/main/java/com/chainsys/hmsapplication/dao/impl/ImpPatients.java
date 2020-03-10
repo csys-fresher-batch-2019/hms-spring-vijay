@@ -4,25 +4,22 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.chainsys.hmsapplication.dao.InterfacePatients;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Patientreglist;
-import com.chainsys.hmsapplication.util.*;
-
+import com.chainsys.hmsapplication.util.connections;
 
 @Repository
 public class ImpPatients implements InterfacePatients {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ImpPatients.class);
 
-	public void addpatient(Patientreglist adpatreg) throws Dbexception {
+	public void savePatient(Patientreglist adpatreg) throws Dbexception {
 		String sql = "insert into patientReg(patient_id,patientname,adharcardno,dob,gender,phoneno,patientreg_date)values(patient_id.nextval,?,?,?,?,?,sysdate)";
 		try (Connection con = connections.TestConnections(); PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setString(1, adpatreg.getPatientname());
@@ -31,14 +28,13 @@ public class ImpPatients implements InterfacePatients {
 			pst.setDate(3, dat);
 			pst.setString(4, adpatreg.getGender());
 			pst.setLong(5, adpatreg.getPhoneno());
-			int rows = pst.executeUpdate();
-			LOGGER.info("row");
-		} catch (Exception e) {
+			pst.executeUpdate();
+		} catch (SQLException e) {
 			throw new Dbexception("Insertion into patient Registration failed");
 		}
 	}
 
-	public ArrayList<Patientreglist> viewpatient() throws Dbexception {
+	public ArrayList<Patientreglist> viewPatient() throws Dbexception {
 		String sql = "select * from patientReg";
 		ArrayList<Patientreglist> obj = new ArrayList<Patientreglist>();
 		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
@@ -59,7 +55,7 @@ public class ImpPatients implements InterfacePatients {
 				}
 			}
 			return obj;
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			throw new Dbexception("Selection from patient Registration failed");
 		}
 	}

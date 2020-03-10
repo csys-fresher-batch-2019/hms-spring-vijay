@@ -1,7 +1,7 @@
 package com.chainsys.hmsapplication.controller;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,20 +20,20 @@ public class AppointmentController {
 
 	@PostMapping("/UpdateAppointmentStatus")
 	public void updatestatus(@RequestParam("app_id") int appid) throws Dbexception {
-		app.updateappointment(appid);
+		app.updateAppointment(appid);
 	}
 
 	@PostMapping("/UpdateAppointmentVisited")
 	public void updatevisited(@RequestParam("app_id") int aid) throws Dbexception {
-		app.updatevisited(aid);
+		app.updateVisited(aid);
 	}
 
 	@GetMapping("/ViewAppointments")
-	public ArrayList<Appointmentlist> viewapp() {
+	public List<Appointmentlist> viewapp() {
 
-		ArrayList<Appointmentlist> list = null;
+		List<Appointmentlist> list = null;
 		try {
-			return list = app.viewapp();
+			return list = app.viewAppointment();
 		} catch (Dbexception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -42,21 +42,21 @@ public class AppointmentController {
 	}
 
 	@PostMapping("/saveAppointment")
-	public void addAppointment(@RequestParam("app_id")int appid,@RequestParam("patient_id") int pid, @RequestParam("purpose") String purpose,
-			@RequestParam("doctor_id") int did, @RequestParam("app_date") String date,
-			@RequestParam("app_time") String time) {
+	public void addAppointment(@RequestParam("app_id") int appid, @RequestParam("patient_id") int pid,
+			@RequestParam("purpose") String purpose, @RequestParam("doctor_id") int did,
+			@RequestParam("app_date") String date, @RequestParam("app_time") String time) {
 
 		Appointmentlist list = new Appointmentlist();
 		list.setAppid(appid);
 		list.setPatientid(pid);
 		list.setPurpose(purpose);
 		list.setDoctorid(did);
-		LocalDate dates= LocalDate.parse(date);
+		LocalDate dates = LocalDate.parse(date);
 		list.setAppdate(dates);
 		list.setApptime(time);
 
 		try {
-			app.addappointment(list);
+			app.saveAppointment(list);
 		} catch (Dbexception e) {
 			e.printStackTrace();
 		}
