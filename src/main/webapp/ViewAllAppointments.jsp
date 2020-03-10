@@ -1,3 +1,4 @@
+<%@page import="com.chainsys.hmsapplication.servlet.DoctorServlet"%>
 <%@page import="com.chainsys.hmsapplication.service.ServiceAppointment"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.chainsys.hmsapplication.dao.impl.Impappointment"%>
@@ -29,8 +30,8 @@
 <body>
 <!--Impappointment obj = new Impappointment();  -->
 <%
-ServiceAppointment obj=new ServiceAppointment();
-ArrayList<Appointmentlist> list = obj.viewapp();
+ArrayList<Appointmentlist> doctorid = (ArrayList)request.getAttribute("list");
+
 %>
 <form action = "ViewAllAppointmentServlet">
 <table border="1">
@@ -48,7 +49,7 @@ ArrayList<Appointmentlist> list = obj.viewapp();
 </thead>
 <tbody>
 <%
-for (Appointmentlist rs : list) {
+for (Appointmentlist rs : doctorid) {
 %>
 <tr>
 <td><%=rs.getAppid()%></td>

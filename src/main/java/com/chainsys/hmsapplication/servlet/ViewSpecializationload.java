@@ -1,0 +1,38 @@
+package com.chainsys.hmsapplication.servlet;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.chainsys.hmsapplication.exception.Dbexception;
+import com.chainsys.hmsapplication.model.Splzationlist;
+import com.chainsys.hmsapplication.service.ServiceSplzations;
+
+@WebServlet("/ViewSpecializationload")
+public class ViewSpecializationload extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		RequestDispatcher sp = null;
+		ServiceSplzations imp = new ServiceSplzations();
+		try {
+			ArrayList<Splzationlist> list = imp.viewspl();
+
+			request.setAttribute("list", list);
+			sp = request.getRequestDispatcher("ViewSpecialization.jsp");
+			sp.forward(request, response);
+		} catch (Dbexception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

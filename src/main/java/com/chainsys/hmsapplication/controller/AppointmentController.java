@@ -1,5 +1,6 @@
 package com.chainsys.hmsapplication.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,6 +39,27 @@ public class AppointmentController {
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+	@PostMapping("/saveAppointment")
+	public void addAppointment(@RequestParam("app_id")int appid,@RequestParam("patient_id") int pid, @RequestParam("purpose") String purpose,
+			@RequestParam("doctor_id") int did, @RequestParam("app_date") String date,
+			@RequestParam("app_time") String time) {
+
+		Appointmentlist list = new Appointmentlist();
+		list.setAppid(appid);
+		list.setPatientid(pid);
+		list.setPurpose(purpose);
+		list.setDoctorid(did);
+		LocalDate dates= LocalDate.parse(date);
+		list.setAppdate(dates);
+		list.setApptime(time);
+
+		try {
+			app.addappointment(list);
+		} catch (Dbexception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

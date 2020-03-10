@@ -34,17 +34,17 @@
 </div>
 <div class="grid-container">
 <div><a href="Registration.jsp" class="button">NEW REGISTERATION</a></div>
-<div><a href="Appointment.jsp" class="button">APPOINTMENT</a></div>
+<div><a href="Appointmentload" class="button">APPOINTMENT</a></div>
 <div><a href="AddSpecialization.jsp" class="button"> ADD SPECIALIZATION</a></div>
-<div><a href="AddDoctor.jsp" class="button"> ADD DOCTOR</a></div>
-<div><a href="Prescription.jsp" class="button">PRESCRIPTION</a></div>
-<div><a href="ViewRegisteredPatients.jsp" class="button">VIEW REGISTERED PATIENTS</a></div>
-<div><a href="ViewAppointments.jsp"class="button"> VIEW APPOINTMENTS</a></div>
-<div><a href="ViewApprovedAppointments.jsp"class="button"> VIEW APPROVED APPOINTMENTS</a></div>
-<div><a href="ViewAllAppointments.jsp"class="button"> VIEW ALL APPOINTMENTS</a></div>
-<div><a href="ViewSpecialization.jsp" class="button"> VIEW SPECIALIZATION</a></div>
-<div><a href="ViewRating.jsp" class="button"> VIEW RATING</a></div>
-<div><a href="ViewDoctors.jsp" class="button"> VIEW DOCTOR LIST</a></div>
+<div><a href="AddDoctorload" class="button"> ADD DOCTOR</a></div>
+<div><a href="Prescriptionload" class="button">PRESCRIPTION</a></div>
+<div><a href="ViewRegisteredload" class="button">VIEW REGISTERED PATIENTS</a></div>
+<div><a href="ViewAppointmentsload"class="button"> VIEW APPOINTMENTS</a></div>
+<div><a href="ViewApprovedAppointmentsload"class="button"> VIEW APPROVED APPOINTMENTS</a></div>
+<div><a href="ViewAllAppointmentload"class="button"> VIEW ALL APPOINTMENTS</a></div>
+<div><a href="ViewSpecializationload" class="button"> VIEW SPECIALIZATION</a></div>
+<div><a href="ViewRatingload" class="button"> VIEW RATING</a></div>
+<div><a href="ViewDoctorsload" class="button"> VIEW DOCTOR LIST</a></div>
 
 </body>
 </html>

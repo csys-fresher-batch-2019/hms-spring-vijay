@@ -22,12 +22,11 @@
 				<td><input type="text" name="patientname"
 					placeholder="enter name" required autofocus />
 			</tr>
-			<!--  Impdoctor doc = new Impdoctor();-->
-
-			<%
-				ServiceDoctor doc = new ServiceDoctor();
-				ArrayList<String> doctorlist = doc.doclist();
-			%>
+			
+			
+	<%
+				ArrayList<String> doctorslist = (ArrayList)request.getAttribute("doctorlist");
+				%>
 
 			<tr>
 				<td>Enter Doctor name:
@@ -35,7 +34,7 @@
 					required> <datalist id="doctorlist">
 
 						<%
-							for (String d : doctorlist) {
+							for (String d : doctorslist) {
 						%>
 						<option value="<%=d%>"><%=d%></option>
 						<%

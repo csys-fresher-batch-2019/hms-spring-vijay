@@ -29,8 +29,7 @@
 <body>
 <!--Impoverall imp=new Impoverall();  -->
 <% 
-ServiceOverall imp=new ServiceOverall();
-ArrayList<Overallrating> list= imp.viewrating();
+ArrayList<Overallrating> lists = (ArrayList)request.getAttribute("list");
 %>
 <form action="ViewRatingServlet">
 <table border="1">
@@ -42,7 +41,7 @@ ArrayList<Overallrating> list= imp.viewrating();
 </thead>
 <tbody>
 <%
-for (Overallrating rs : list) {
+for (Overallrating rs : lists) {
 %>
 <tr>
 <td><%=rs.getDoctor_id() %></td>

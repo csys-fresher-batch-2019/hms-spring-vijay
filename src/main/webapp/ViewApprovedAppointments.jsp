@@ -40,11 +40,10 @@
 </style>
 <body>
 
-<!--  Impappointment obj = new Impappointment();-->
+
 
 <%
-ServiceAppointment obj=new ServiceAppointment();
-ArrayList<Appointmentlist> list = obj.viewstatus();
+ArrayList<Appointmentlist> lists = (ArrayList)request.getAttribute("list");
 %>
 <form action = "AppointmentVisitedServlet">
 <table border="1">
@@ -61,7 +60,7 @@ ArrayList<Appointmentlist> list = obj.viewstatus();
 </thead>
 <tbody>
 <%
-for (Appointmentlist rs : list) {
+for (Appointmentlist rs : lists) {
 %>
 <tr>
 <td><%=rs.getAppid()%></td>

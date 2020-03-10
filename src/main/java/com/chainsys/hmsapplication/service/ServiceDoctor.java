@@ -17,7 +17,7 @@ public class ServiceDoctor {
 
 	public void adddoctor(Doctorlist addoc) throws Dbexception {
 		docs.adddoctor(addoc);
-
+		
 	}
 
 	public ArrayList<Doctorlist> viewdoctor() throws Dbexception {

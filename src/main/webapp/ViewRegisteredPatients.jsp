@@ -28,10 +28,9 @@
 }
 </style>
 <body>
-	<!-- ImpPatients pat=new ImpPatients(); -->
 	<%
-		ServicePatient pat = new ServicePatient();
-		ArrayList<Patientreglist> reg = pat.viewpatient();
+	ArrayList<Patientreglist> lists = (ArrayList)request.getAttribute("list");
+
 	%>
 
 	<form action="ViewRegisteredServlet">
@@ -49,7 +48,7 @@
 			</thead>
 			<tbody>
 				<%
-					for (Patientreglist rs : reg) {
+					for (Patientreglist rs : lists) {
 				%>
 				<tr>
 					<td><%=rs.getPatientId()%></td>

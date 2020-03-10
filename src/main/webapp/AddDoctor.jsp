@@ -47,12 +47,12 @@
 				<td>Enter Doctor Name
 				<td><input type="text" name="docname">
 			</tr>
-			<!-- Impspecialization splizaton = new Impspecialization(); -->
-			<%
-				ServiceSplzations splzation=new ServiceSplzations();
-				ArrayList<Integer> spl = splzation.getspl();
+		
+			
+				<%
+				ArrayList<Integer> spl = (ArrayList) request.getAttribute("spl");
+				%>
 				
-			%>
 			  <c:set var="specializations" value="<%=spl%>"></c:set>
 			<tr>
 				<td>Enter Specialization ID

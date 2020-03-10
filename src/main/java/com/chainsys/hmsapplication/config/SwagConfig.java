@@ -15,6 +15,6 @@ public class SwagConfig {
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("com.chainsys")).paths(PathSelectors.any()).build();
+				.apis(RequestHandlerSelectors.basePackage("com.chainsys.hmsapplication")).paths(PathSelectors.any()).build();
 	}
 }

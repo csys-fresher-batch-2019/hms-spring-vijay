@@ -30,16 +30,21 @@ public class Impdoctor implements Interfacedoctor {
 			int rows = pst.executeUpdate();
 			LOGGER.info("rows");
 			System.out.println(addoc.getDoctorid());
-			String sql1 = "insert into overallrating(doctor_id) values(?)";
-			try (PreparedStatement pst1 = con.prepareStatement(sql1);) {
-
-				pst1.setInt(1, addoc.getDoctorid());
-
-				int row = pst1.executeUpdate();
-				LOGGER.info("row");
-			}
+			addOverAllRating(addoc);
 		} catch (Exception e) {
 			throw new Dbexception("insertion doctorlist failed");
+		}
+	}
+
+	public void addOverAllRating(Doctorlist addoc) throws Dbexception {
+		String sql1 = "insert into overallrating(doctor_id) values(?)";
+		try (Connection con = connections.TestConnections(); PreparedStatement pst1 = con.prepareStatement(sql1);) {
+			pst1.setInt(1, addoc.getDoctorid());
+
+			int row = pst1.executeUpdate();
+			LOGGER.info("row");
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 

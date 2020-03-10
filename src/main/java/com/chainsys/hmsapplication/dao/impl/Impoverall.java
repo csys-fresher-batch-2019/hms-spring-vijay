@@ -3,6 +3,7 @@ package com.chainsys.hmsapplication.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -28,16 +29,23 @@ public class Impoverall implements Interfaceoverallrating {
 				rs.next();
 				float average = rs.getFloat("avg");
 				System.out.println(average);
-				String sql = "update overallrating set rating =? where doctor_id=?";
-				try (PreparedStatement pst1 = con.prepareStatement(sql);) {
-					pst1.setFloat(1, average);
-					pst1.setInt(2, doctorid);
-					int row = pst1.executeUpdate();
-					LOGGER.info("row");
-				}
+				updateOverallRating(doctorid,average);
 			}
 		} catch (Exception e) {
 			throw new Dbexception("Updation of doctor_id in overallrating failed");
+		}
+	}
+
+	public void updateOverallRating(int doctorid,float average) throws SQLException {
+		String sql = "update overallrating set rating =? where doctor_id=?";
+		try (Connection con = connections.TestConnections(); 
+				PreparedStatement pst1 = con.prepareStatement(sql);) {
+			pst1.setFloat(1, average);
+			pst1.setInt(2, doctorid);
+			int row = pst1.executeUpdate();
+			LOGGER.info("row");
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 

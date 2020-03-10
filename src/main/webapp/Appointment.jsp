@@ -36,11 +36,11 @@
 <td>Enter purpose:
 <td><input type="text" name="purpose" placeholder="enter purpose" >
 </tr>
-<!--  Impdoctor doc = new Impdoctor();-->
+
 <%
-					ServiceDoctor doc=new ServiceDoctor();
-					ArrayList<Integer> doctorid = doc.doctorid();
+				ArrayList<Integer> doctorid = (ArrayList)request.getAttribute("docid");
 				%>
+
 <tr><td>Enter doctor id:
 <td><select id="doctorlist" name="doctorid" > 
 <%

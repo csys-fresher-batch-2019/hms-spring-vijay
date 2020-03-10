@@ -28,10 +28,9 @@
 </style>
 <body>
 
-	<!-- Impspecialization imp= new Impspecialization(); -->
+	
 	<%
-		ServiceSplzations imp = new ServiceSplzations();
-		ArrayList<Splzationlist> list = imp.viewspl();
+	ArrayList<Splzationlist> lists = (ArrayList)request.getAttribute("list");
 	%>
 
 	<form action="ViewSpecializationServlet">
@@ -44,7 +43,7 @@
 			</thead>
 			<tbody>
 				<%
-					for (Splzationlist rs : list) {
+					for (Splzationlist rs : lists) {
 				%>
 				<tr>
 					<td><%=rs.getSplzationid()%></td>

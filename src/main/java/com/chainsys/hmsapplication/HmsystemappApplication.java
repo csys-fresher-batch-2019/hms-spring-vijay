@@ -10,6 +10,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @ServletComponentScan("com.chainsys.hmsapplication")
 public class HmsystemappApplication extends SpringBootServletInitializer{
+	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(HmsystemappApplication.class);
