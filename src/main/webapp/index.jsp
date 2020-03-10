@@ -34,17 +34,17 @@
 </div>
 <div class="grid-container">
 <div><a href="Registration.jsp" class="button">NEW REGISTERATION</a></div>
-<div><a href="Appointmentload" class="button">APPOINTMENT</a></div>
+<div><a href="AppointmentLoadServlet" class="button">APPOINTMENT</a></div>
 <div><a href="AddSpecialization.jsp" class="button"> ADD SPECIALIZATION</a></div>
-<div><a href="AddDoctorload" class="button"> ADD DOCTOR</a></div>
-<div><a href="Prescriptionload" class="button">PRESCRIPTION</a></div>
-<div><a href="ViewRegisteredload" class="button">VIEW REGISTERED PATIENTS</a></div>
-<div><a href="ViewAppointmentsload"class="button"> VIEW APPOINTMENTS</a></div>
-<div><a href="ViewApprovedAppointmentsload"class="button"> VIEW APPROVED APPOINTMENTS</a></div>
-<div><a href="ViewAllAppointmentload"class="button"> VIEW ALL APPOINTMENTS</a></div>
-<div><a href="ViewSpecializationload" class="button"> VIEW SPECIALIZATION</a></div>
-<div><a href="ViewRatingload" class="button"> VIEW RATING</a></div>
-<div><a href="ViewDoctorsload" class="button"> VIEW DOCTOR LIST</a></div>
+<div><a href="AddDoctorLoadServlet" class="button"> ADD DOCTOR</a></div>
+<div><a href="PrescriptionLoadServlet" class="button">PRESCRIPTION</a></div>
+<div><a href="ViewRegisteredLoadServlet" class="button">VIEW REGISTERED PATIENTS</a></div>
+<div><a href="ViewAppointmentsLoadServlet"class="button"> VIEW APPOINTMENTS</a></div>
+<div><a href="ViewApprovedAppointmentsLoadServlet"class="button"> VIEW APPROVED APPOINTMENTS</a></div>
+<div><a href="ViewAllAppointmentLoadServlet"class="button"> VIEW ALL APPOINTMENTS</a></div>
+<div><a href="ViewSpecializationLoadServlet" class="button"> VIEW SPECIALIZATION</a></div>
+<div><a href="ViewRatingLoadServlet" class="button"> VIEW RATING</a></div>
+<div><a href="ViewDoctorsLoadServlet" class="button"> VIEW DOCTOR LIST</a></div>
 
 </body>
 </html>

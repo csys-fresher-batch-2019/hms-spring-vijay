@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chainsys.hmsapplication.dao.impl.Impdoctor;
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Doctorlist;
+import com.chainsys.hmsapplication.model.Doctor;
 
 @RestController
 @RequestMapping("api")
@@ -19,9 +19,9 @@ public class DoctorController {
 
 	@GetMapping("/viewdoctors")
 
-	public ArrayList<Doctorlist> viewdoctor() {
+	public ArrayList<Doctor> viewdoctor() {
 
-		ArrayList<Doctorlist> ad = null;
+		ArrayList<Doctor> ad = null;
 		try {
 			ad = doc.viewDoctor();
 		} catch (Dbexception e) {
@@ -35,12 +35,12 @@ public class DoctorController {
 	public void addDoctor(@RequestParam("doctor_id") int docid, @RequestParam("doctor_name") String docname,
 			@RequestParam("splzation_id") int splid, @RequestParam("consultingfee") int confee) {
 
-		Doctorlist list = new Doctorlist();
+		Doctor list = new Doctor();
 
-		list.setDoctorid(docid);
-		list.setDoctorname(docname);
-		list.setSplzationid(splid);
-		list.setConsultingfee(confee);
+		list.setDoctorId(docid);
+		list.setDoctorName(docname);
+		list.setSpecializationId(splid);
+		list.setConsultationFee(confee);
 
 		try {
 			doc.saveDoctor(list);

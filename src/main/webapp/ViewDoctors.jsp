@@ -1,5 +1,5 @@
 <%@page import="com.chainsys.hmsapplication.service.ServiceDoctor"%>
-<%@page import="com.chainsys.hmsapplication.model.Doctorlist"%>
+<%@page import="com.chainsys.hmsapplication.model.Doctor"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.chainsys.hmsapplication.dao.impl.Impdoctor"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -28,7 +28,7 @@
 </style>
 <body>
 	<%
-		ArrayList<Doctorlist> lists = (ArrayList) request.getAttribute("list");
+		ArrayList<Doctor> lists = (ArrayList) request.getAttribute("list");
 	%>
 	<form action="ViewDoctorServlet">
 		<table border="1">
@@ -39,14 +39,14 @@
 					<th>SPECIALIZATION ID</th>
 					<th>CONSULTING FEE</th>
 					<%
-						for (Doctorlist rs : lists) {
+						for (Doctor rs : lists) {
 					%>
 				
 				<tr>
-					<td><%=rs.getDoctorid()%></td>
-					<td><%=rs.getDoctorname()%></td>
-					<td><%=rs.getSplzationid()%></td>
-					<td><%=rs.getConsultingfee()%></td>
+					<td><%=rs.getDoctorId()%></td>
+					<td><%=rs.getDoctorName()%></td>
+					<td><%=rs.getSpecializationId()%></td>
+					<td><%=rs.getConsultationFee()%></td>
 					<%
 						}
 					%>

@@ -3,11 +3,11 @@ package com.chainsys.hmsapplication.dao;
 import java.util.List;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Patientreglist;
+import com.chainsys.hmsapplication.model.PatientRegistration;
 
 public interface InterfacePatients {
 
-	public void savePatient(Patientreglist p) throws Dbexception;
+	public void savePatient(PatientRegistration p) throws Dbexception;
 
-	public List<Patientreglist> viewPatient() throws Dbexception;
+	public List<PatientRegistration> viewPatient() throws Dbexception;
 }

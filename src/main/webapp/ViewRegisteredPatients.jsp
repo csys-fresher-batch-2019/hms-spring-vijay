@@ -1,6 +1,6 @@
 <%@page import="com.chainsys.hmsapplication.service.ServicePatient"%>
 <%@page import="java.util.List"%>
-<%@page import="com.chainsys.hmsapplication.model.Patientreglist"%>
+<%@page import="com.chainsys.hmsapplication.model.PatientRegistration"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.chainsys.hmsapplication.dao.impl.ImpPatients"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -29,8 +29,7 @@
 </style>
 <body>
 	<%
-	ArrayList<Patientreglist> lists = (ArrayList)request.getAttribute("list");
-
+		ArrayList<PatientRegistration> lists = (ArrayList)request.getAttribute("list");
 	%>
 
 	<form action="ViewRegisteredServlet">
@@ -48,16 +47,16 @@
 			</thead>
 			<tbody>
 				<%
-					for (Patientreglist rs : lists) {
+					for (PatientRegistration rs : lists) {
 				%>
 				<tr>
 					<td><%=rs.getPatientId()%></td>
-					<td><%=rs.getPatientname()%></td>
-					<td><%=rs.getAdharno()%></td>
+					<td><%=rs.getPatientName()%></td>
+					<td><%=rs.getAdharNo()%></td>
 					<td><%=rs.getDob()%></td>
 					<td><%=rs.getGender()%></td>
-					<td><%=rs.getPhoneno()%></td>
-					<td><%=rs.getRegdate()%></td>
+					<td><%=rs.getPhoneNo()%></td>
+					<td><%=rs.getRegistrationDate()%></td>
 
 				</tr>
 

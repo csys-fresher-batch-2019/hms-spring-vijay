@@ -22,11 +22,11 @@
 				<td><input type="text" name="patientname"
 					placeholder="enter name" required autofocus />
 			</tr>
-			
-			
-	<%
-				ArrayList<String> doctorslist = (ArrayList)request.getAttribute("doctorlist");
-				%>
+
+
+			<%
+				ArrayList<String> doctorslist = (ArrayList) request.getAttribute("doctorlist");
+			%>
 
 			<tr>
 				<td>Enter Doctor name:

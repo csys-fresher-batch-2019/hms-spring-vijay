@@ -13,22 +13,22 @@ import org.springframework.stereotype.Repository;
 
 import com.chainsys.hmsapplication.dao.Interfaceapp;
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Appointmentlist;
+import com.chainsys.hmsapplication.model.Appointment;
 import com.chainsys.hmsapplication.util.connections;
 
 @Repository
 public class Impappointment implements Interfaceapp {
 
-	public void saveAppointment(Appointmentlist adapp) throws Dbexception {
+	public void saveAppointment(Appointment adapp) throws Dbexception {
 
 		String sql = "insert into appointment (app_id,patient_id,purpose,doctor_id,app_date,app_time) values(?,?,?,?,?,?)";
 		try (Connection con = connections.TestConnections(); PreparedStatement pst = con.prepareStatement(sql);) {
-			pst.setInt(1, adapp.getAppid());
-			pst.setInt(2, adapp.getPatientid());
+			pst.setInt(1, adapp.getAppointmentId());
+			pst.setInt(2, adapp.getPatientId());
 			pst.setString(3, adapp.getPurpose());
-			pst.setInt(4, adapp.getDoctorid());
-			pst.setDate(5, Date.valueOf(adapp.getAppdate()));
-			pst.setString(6, adapp.getApptime());
+			pst.setInt(4, adapp.getDoctorId());
+			pst.setDate(5, Date.valueOf(adapp.getAppointmentDate()));
+			pst.setString(6, adapp.getAppointmentTime());
 			pst.executeUpdate();
 
 		} catch (SQLException e) {
@@ -57,21 +57,21 @@ public class Impappointment implements Interfaceapp {
 		}
 	}
 
-	public List<Appointmentlist> viewAppointment() throws Dbexception {
+	public List<Appointment> viewAppointment() throws Dbexception {
 
 		String sql = "select * from appointment order by app_date desc";
-		ArrayList<Appointmentlist> obj = new ArrayList<Appointmentlist>();
+		ArrayList<Appointment> obj = new ArrayList<Appointment>();
 		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
-					Appointmentlist h = new Appointmentlist();
-					h.setAppid(rs.getInt("app_id"));
-					h.setPatientid(rs.getInt("patient_id"));
+					Appointment h = new Appointment();
+					h.setAppointmentId(rs.getInt("app_id"));
+					h.setPatientId(rs.getInt("patient_id"));
 					h.setPurpose(rs.getString("purpose"));
-					h.setDoctorid(rs.getInt("doctor_id"));
+					h.setDoctorId(rs.getInt("doctor_id"));
 					Date st = rs.getDate("app_date");
-					h.setAppdate(st.toLocalDate());
-					h.setApptime(rs.getString("app_time"));
+					h.setAppointmentDate(st.toLocalDate());
+					h.setAppointmentTime(rs.getString("app_time"));
 					h.setStatus(rs.getString("status"));
 					h.setVisited(rs.getString("visited"));
 					obj.add(h);
@@ -83,21 +83,21 @@ public class Impappointment implements Interfaceapp {
 		}
 	}
 
-	public List<Appointmentlist> viewPendingAppointment() throws Dbexception {
+	public List<Appointment> viewPendingAppointment() throws Dbexception {
 
 		String sql = "select * from appointment where status='pending' order by app_date desc";
-		ArrayList<Appointmentlist> obj = new ArrayList<Appointmentlist>();
+		ArrayList<Appointment> obj = new ArrayList<Appointment>();
 		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
-					Appointmentlist h = new Appointmentlist();
-					h.setAppid(rs.getInt("app_id"));
-					h.setPatientid(rs.getInt("patient_id"));
+					Appointment h = new Appointment();
+					h.setAppointmentId(rs.getInt("app_id"));
+					h.setPatientId(rs.getInt("patient_id"));
 					h.setPurpose(rs.getString("purpose"));
-					h.setDoctorid(rs.getInt("doctor_id"));
+					h.setDoctorId(rs.getInt("doctor_id"));
 					Date st = rs.getDate("app_date");
-					h.setAppdate(st.toLocalDate());
-					h.setApptime(rs.getString("app_time"));
+					h.setAppointmentDate(st.toLocalDate());
+					h.setAppointmentTime(rs.getString("app_time"));
 					h.setStatus(rs.getString("status"));
 					obj.add(h);
 				}
@@ -108,21 +108,21 @@ public class Impappointment implements Interfaceapp {
 		}
 	}
 
-	public List<Appointmentlist> viewStatus() throws Dbexception {
+	public List<Appointment> viewStatus() throws Dbexception {
 
 		String sql = "select * from appointment where status='approved'order by app_date desc";
-		ArrayList<Appointmentlist> obj = new ArrayList<Appointmentlist>();
+		ArrayList<Appointment> obj = new ArrayList<Appointment>();
 		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
-					Appointmentlist h = new Appointmentlist();
-					h.setAppid(rs.getInt("app_id"));
-					h.setPatientid(rs.getInt("patient_id"));
+					Appointment h = new Appointment();
+					h.setAppointmentId(rs.getInt("app_id"));
+					h.setPatientId(rs.getInt("patient_id"));
 					h.setPurpose(rs.getString("purpose"));
-					h.setDoctorid(rs.getInt("doctor_id"));
+					h.setDoctorId(rs.getInt("doctor_id"));
 					Date st = rs.getDate("app_date");
-					h.setAppdate(st.toLocalDate());
-					h.setApptime(rs.getString("app_time"));
+					h.setAppointmentDate(st.toLocalDate());
+					h.setAppointmentTime(rs.getString("app_time"));
 					h.setVisited(rs.getString("visited"));
 					obj.add(h);
 				}

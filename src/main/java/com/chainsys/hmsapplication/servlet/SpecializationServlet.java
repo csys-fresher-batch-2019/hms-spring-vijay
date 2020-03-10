@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Splzationlist;
+import com.chainsys.hmsapplication.model.Specialization;
 import com.chainsys.hmsapplication.service.ServiceSplzations;
 
 @WebServlet("/SpecializationServlet")
@@ -23,12 +23,12 @@ public class SpecializationServlet extends HttpServlet {
 		String id = request.getParameter("specialid");
 		String name = request.getParameter("specialname");
 
-		Splzationlist spl = new Splzationlist();
+		Specialization spl = new Specialization();
 
 		ServiceSplzations imp = new ServiceSplzations();
 		int add = Integer.parseInt(id);
-		spl.setSplzationid(add);
-		spl.setSplzationname(name);
+		spl.setSpecializationId(add);
+		spl.setSpecializationName(name);
 		try {
 			imp.addspecialization(spl);
 			response.sendRedirect("SpecialAdded.jsp");

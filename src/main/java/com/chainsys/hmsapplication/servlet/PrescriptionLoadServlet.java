@@ -11,28 +11,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Splzationlist;
-import com.chainsys.hmsapplication.service.ServiceSplzations;
+import com.chainsys.hmsapplication.service.ServiceDoctor;
 
-@WebServlet("/ViewSpecializationload")
-public class ViewSpecializationload extends HttpServlet {
+@WebServlet("/PrescriptionLoadServlet")
+public class PrescriptionLoadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		RequestDispatcher sp = null;
-		ServiceSplzations imp = new ServiceSplzations();
+		ServiceDoctor doc = new ServiceDoctor();
 		try {
-			List<Splzationlist> list = imp.viewspl();
+			List<String> doctorlist = doc.doclist();
+			request.setAttribute("doctorlist", doctorlist);
 
-			request.setAttribute("list", list);
-			sp = request.getRequestDispatcher("ViewSpecialization.jsp");
+			RequestDispatcher sp = request.getRequestDispatcher("Prescription.jsp");
 			sp.forward(request, response);
+
 		} catch (Dbexception e) {
 			e.printStackTrace();
 		}
-
 	}
-
 }

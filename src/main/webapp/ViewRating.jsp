@@ -1,5 +1,5 @@
 <%@page import="com.chainsys.hmsapplication.service.ServiceOverall"%>
-<%@page import="com.chainsys.hmsapplication.model.Overallrating"%>
+<%@page import="com.chainsys.hmsapplication.model.OverallRating"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.chainsys.hmsapplication.dao.impl.Impoverall"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -28,8 +28,8 @@
 </style>
 <body>
 <!--Impoverall imp=new Impoverall();  -->
-<% 
-ArrayList<Overallrating> lists = (ArrayList)request.getAttribute("list");
+<%
+	ArrayList<OverallRating> lists = (ArrayList)request.getAttribute("list");
 %>
 <form action="ViewRatingServlet">
 <table border="1">
@@ -41,10 +41,10 @@ ArrayList<Overallrating> lists = (ArrayList)request.getAttribute("list");
 </thead>
 <tbody>
 <%
-for (Overallrating rs : lists) {
+	for (OverallRating rs : lists) {
 %>
 <tr>
-<td><%=rs.getDoctor_id() %></td>
+<td><%=rs.getDoctorId()%></td>
 <td><%=rs.getRating() %></td>
 </tr>
 

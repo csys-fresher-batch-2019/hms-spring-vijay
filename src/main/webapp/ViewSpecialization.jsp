@@ -1,5 +1,5 @@
 <%@page import="com.chainsys.hmsapplication.service.ServiceSplzations"%>
-<%@page import="com.chainsys.hmsapplication.model.Splzationlist"%>
+<%@page import="com.chainsys.hmsapplication.model.Specialization"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.chainsys.hmsapplication.dao.impl.Impspecialization"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -30,8 +30,8 @@
 
 	
 	<%
-	ArrayList<Splzationlist> lists = (ArrayList)request.getAttribute("list");
-	%>
+			ArrayList<Specialization> lists = (ArrayList)request.getAttribute("list");
+		%>
 
 	<form action="ViewSpecializationServlet">
 		<table border="1">
@@ -43,11 +43,11 @@
 			</thead>
 			<tbody>
 				<%
-					for (Splzationlist rs : lists) {
+					for (Specialization rs : lists) {
 				%>
 				<tr>
-					<td><%=rs.getSplzationid()%></td>
-					<td><%=rs.getSplzationname()%></td>
+					<td><%=rs.getSpecializationId()%></td>
+					<td><%=rs.getSpecializationName()%></td>
 				</tr>
 
 				<%

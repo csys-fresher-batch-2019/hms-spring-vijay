@@ -8,18 +8,18 @@ import org.springframework.stereotype.Service;
 import com.chainsys.hmsapplication.dao.Interfaceprescription;
 import com.chainsys.hmsapplication.dao.impl.Impprescription;
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Prescriptionlist;
+import com.chainsys.hmsapplication.model.Prescription;
 
 @Service
 public class ServicePrescription {
 	@Autowired
 	Interfaceprescription pres = new Impprescription();
 
-	public void addData(Prescriptionlist L) throws Dbexception {
+	public void addData(Prescription L) throws Dbexception {
 		pres.addPrescriptionData(L);
 	}
 
-	public List<Prescriptionlist> viewData() throws Dbexception {
+	public List<Prescription> viewData() throws Dbexception {
 		return pres.viewData();
 	}
 

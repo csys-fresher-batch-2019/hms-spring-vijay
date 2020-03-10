@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Userrating;
+import com.chainsys.hmsapplication.model.UserRating;
 import com.chainsys.hmsapplication.service.ServiceUserRating;
 
 @WebServlet("/RatingsServlet")
@@ -25,11 +25,11 @@ public class RatingsServlet extends HttpServlet {
 		String rating = request.getParameter("rating");
 
 		ServiceUserRating imp = new ServiceUserRating();
-		Userrating ur = new Userrating();
+		UserRating ur = new UserRating();
 		int patient = Integer.parseInt(patientid);
-		ur.setPatient_id(patient);
+		ur.setPatientId(patient);
 		int doctor = Integer.parseInt(doctorid);
-		ur.setDoctor_id(doctor);
+		ur.setDoctorId(doctor);
 		int rtg = Integer.parseInt(rating);
 		ur.setRating(rtg);
 		try {

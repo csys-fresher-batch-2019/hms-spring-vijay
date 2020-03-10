@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.service.ServiceSplzations;
 
-@WebServlet("/AddDoctorload")
-public class AddDoctorload extends HttpServlet {
+@WebServlet("/AddDoctorLoadServlet")
+public class AddDoctorLoadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

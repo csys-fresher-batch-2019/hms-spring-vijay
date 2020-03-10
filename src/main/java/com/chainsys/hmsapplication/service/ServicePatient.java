@@ -8,19 +8,19 @@ import org.springframework.stereotype.Service;
 import com.chainsys.hmsapplication.dao.InterfacePatients;
 import com.chainsys.hmsapplication.dao.impl.ImpPatients;
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Patientreglist;
+import com.chainsys.hmsapplication.model.PatientRegistration;
 
 @Service
 public class ServicePatient {
 	@Autowired
 	InterfacePatients patient = new ImpPatients();
 
-	public void addpatient(Patientreglist p) throws Dbexception {
+	public void addpatient(PatientRegistration p) throws Dbexception {
 		patient.savePatient(p);
 
 	}
 
-	public List<Patientreglist> viewpatient() throws Dbexception {
+	public List<PatientRegistration> viewpatient() throws Dbexception {
 		return patient.viewPatient();
 
 	}

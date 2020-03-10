@@ -1,4 +1,4 @@
-<%@page import="com.chainsys.hmsapplication.model.Appointmentlist"%>
+<%@page import="com.chainsys.hmsapplication.model.Appointment"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.ArrayList" %>
@@ -40,8 +40,7 @@
 <body>
 
 <%
-ArrayList<Appointmentlist> lists = (ArrayList)request.getAttribute("list");
-
+	ArrayList<Appointment> lists = (ArrayList)request.getAttribute("list");
 %>
 <form action = "AppointmentStatusServlet">
 <table border="1">
@@ -58,17 +57,17 @@ ArrayList<Appointmentlist> lists = (ArrayList)request.getAttribute("list");
 </thead>
 <tbody>
 <%
-for (Appointmentlist rs : lists) {
+	for (Appointment rs : lists) {
 %>
 <tr>
-<td><%=rs.getAppid()%></td>
-<td><%=rs.getPatientid()%></td>
+<td><%=rs.getAppointmentId()%></td>
+<td><%=rs.getPatientId()%></td>
 <td><%=rs.getPurpose()%></td>
-<td><%=rs.getDoctorid()%></td>
-<td><%=rs.getAppdate()%></td>
-<td><%=rs.getApptime()%></td>
-<td><%=rs.getStatus() %>
-<td><button name="pid" type ="submit" class="button" value=<%=rs.getAppid()%> >Approve</button></td>
+<td><%=rs.getDoctorId()%></td>
+<td><%=rs.getAppointmentDate()%></td>
+<td><%=rs.getAppointmentTime()%></td>
+<td><%=rs.getStatus()%>
+<td><button name="pid" type ="submit" class="button" value=<%=rs.getAppointmentId()%> >Approve</button></td>
 </tr>
 
 <%

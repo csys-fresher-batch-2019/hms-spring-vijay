@@ -38,8 +38,8 @@
 </tr>
 
 <%
-				ArrayList<Integer> doctorid = (ArrayList)request.getAttribute("docid");
-				%>
+ArrayList<Integer> doctorid = (ArrayList)request.getAttribute("docid");
+%>
 
 <tr><td>Enter doctor id:
 <td><select id="doctorlist" name="doctorid" > 

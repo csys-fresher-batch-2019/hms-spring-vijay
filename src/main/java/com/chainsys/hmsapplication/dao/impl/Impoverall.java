@@ -10,7 +10,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 import com.chainsys.hmsapplication.dao.Interfaceoverallrating;
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Overallrating;
+import com.chainsys.hmsapplication.model.OverallRating;
 import com.chainsys.hmsapplication.util.connections;
 
 @Repository
@@ -55,14 +55,14 @@ public class Impoverall implements Interfaceoverallrating {
 		}
 	}
 	
-	public List<Overallrating> viewRating() throws Dbexception {
+	public List<OverallRating> viewRating() throws Dbexception {
 		String sql = "select * from overallrating ";
-		ArrayList<Overallrating> obj = new ArrayList<>();
+		ArrayList<OverallRating> obj = new ArrayList<>();
 		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
-					Overallrating o = new Overallrating();
-					o.setDoctor_id(rs.getInt("doctor_id"));
+					OverallRating o = new OverallRating();
+					o.setDoctorId(rs.getInt("doctor_id"));
 					o.setRating(rs.getInt("rating"));
 					obj.add(o);
 				}

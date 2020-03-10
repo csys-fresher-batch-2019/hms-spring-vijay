@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Appointmentlist;
-import com.chainsys.hmsapplication.service.ServiceAppointment;
+import com.chainsys.hmsapplication.model.OverallRating;
+import com.chainsys.hmsapplication.service.ServiceOverall;
 
-@WebServlet("/ViewAppointmentsload")
-public class ViewAppointmentsload extends HttpServlet {
+@WebServlet("/ViewRatingLoadServlet")
+public class ViewRatingLoadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -23,17 +23,18 @@ public class ViewAppointmentsload extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 
-		ServiceAppointment obj = new ServiceAppointment();
+		ServiceOverall imp = new ServiceOverall();
 		try {
-			List<Appointmentlist> list = obj.viewpendingapp();
+			List<OverallRating> list = imp.viewrating();
 
 			request.setAttribute("list", list);
 
-			RequestDispatcher sp = request.getRequestDispatcher("ViewAppointments.jsp");
+			RequestDispatcher sp = request.getRequestDispatcher("ViewRating.jsp");
 			sp.forward(request, response);
 		} catch (Dbexception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
+
 }

@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 import com.chainsys.hmsapplication.dao.Interfaceapp;
 import com.chainsys.hmsapplication.dao.impl.Impappointment;
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Appointmentlist;
+import com.chainsys.hmsapplication.model.Appointment;
 
 @Service
 public class ServiceAppointment {
 
 	Interfaceapp la = new Impappointment();
 
-	public void addappointment(Appointmentlist a) throws Dbexception {
+	public void addappointment(Appointment a) throws Dbexception {
 
 		la.saveAppointment(a);
 	}
@@ -29,17 +29,17 @@ public class ServiceAppointment {
 
 	}
 
-	public List<Appointmentlist> viewapp() throws Dbexception {
+	public List<Appointment> viewapp() throws Dbexception {
 		return la.viewAppointment();
 
 	}
 
-	public List<Appointmentlist> viewpendingapp() throws Dbexception {
+	public List<Appointment> viewpendingapp() throws Dbexception {
 		return la.viewPendingAppointment();
 
 	}
 
-	public List<Appointmentlist> viewstatus() throws Dbexception {
+	public List<Appointment> viewstatus() throws Dbexception {
 		return la.viewStatus();
 
 	}

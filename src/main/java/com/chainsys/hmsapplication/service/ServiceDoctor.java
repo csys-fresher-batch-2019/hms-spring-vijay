@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.chainsys.hmsapplication.dao.Interfacedoctor;
 import com.chainsys.hmsapplication.dao.impl.Impdoctor;
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Doctorlist;
+import com.chainsys.hmsapplication.model.Doctor;
 
 @Service
 public class ServiceDoctor {
@@ -16,12 +16,12 @@ public class ServiceDoctor {
 
 	Interfacedoctor docs = new Impdoctor();
 
-	public void adddoctor(Doctorlist addoc) throws Dbexception {
+	public void adddoctor(Doctor addoc) throws Dbexception {
 		docs.saveDoctor(addoc);
 
 	}
 
-	public List<Doctorlist> viewdoctor() throws Dbexception {
+	public List<Doctor> viewdoctor() throws Dbexception {
 		return docs.viewDoctor();
 
 	}

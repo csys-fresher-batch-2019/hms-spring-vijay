@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chainsys.hmsapplication.dao.impl.Impappointment;
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Appointmentlist;
+import com.chainsys.hmsapplication.model.Appointment;
 
 @RestController
 @RequestMapping("api")
@@ -29,9 +29,9 @@ public class AppointmentController {
 	}
 
 	@GetMapping("/ViewAppointments")
-	public List<Appointmentlist> viewapp() {
+	public List<Appointment> viewapp() {
 
-		List<Appointmentlist> list = null;
+		List<Appointment> list = null;
 		try {
 			return list = app.viewAppointment();
 		} catch (Dbexception e) {
@@ -46,14 +46,14 @@ public class AppointmentController {
 			@RequestParam("purpose") String purpose, @RequestParam("doctor_id") int did,
 			@RequestParam("app_date") String date, @RequestParam("app_time") String time) {
 
-		Appointmentlist list = new Appointmentlist();
-		list.setAppid(appid);
-		list.setPatientid(pid);
+		Appointment list = new Appointment();
+		list.setAppointmentId(appid);
+		list.setPatientId(pid);
 		list.setPurpose(purpose);
-		list.setDoctorid(did);
+		list.setDoctorId(did);
 		LocalDate dates = LocalDate.parse(date);
-		list.setAppdate(dates);
-		list.setApptime(time);
+		list.setAppointmentDate(dates);
+		list.setAppointmentTime(time);
 
 		try {
 			app.saveAppointment(list);

@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.hmsapplication.model.Patientreglist;
+import com.chainsys.hmsapplication.model.PatientRegistration;
 import com.chainsys.hmsapplication.service.ServicePatient;
 
 @WebServlet("/Registrationservlet")
 
-public class Registrationservlet extends HttpServlet {
+public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -29,16 +29,16 @@ public class Registrationservlet extends HttpServlet {
 
 		ServicePatient obj = new ServicePatient();
 
-		Patientreglist p1 = new Patientreglist();
+		PatientRegistration p1 = new PatientRegistration();
 
-		p1.setPatientname(Name);
+		p1.setPatientName(Name);
 		long adhar = Long.parseLong(Adhar);
-		p1.setAdharno(adhar);
+		p1.setAdharNo(adhar);
 		LocalDate st = LocalDate.parse(dob);
 		p1.setDob(st);
 		p1.setGender(gender);
 		long ph = Long.parseLong(phno);
-		p1.setPhoneno(ph);
+		p1.setPhoneNo(ph);
 
 		try {
 			obj.addpatient(p1);

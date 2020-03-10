@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.chainsys.hmsapplication.dao.Interfaceoverallrating;
 import com.chainsys.hmsapplication.dao.impl.Impoverall;
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Overallrating;
+import com.chainsys.hmsapplication.model.OverallRating;
 
 @Service
 public class ServiceOverall {
@@ -26,7 +26,7 @@ public class ServiceOverall {
 		imp.addDoctorId(doc);
 	}
 
-	public List<Overallrating> viewrating() throws Dbexception {
+	public List<OverallRating> viewrating() throws Dbexception {
 		return imp.viewRating();
 	}
 

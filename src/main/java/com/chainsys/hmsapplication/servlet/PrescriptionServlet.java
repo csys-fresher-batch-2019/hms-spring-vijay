@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Prescriptionlist;
+import com.chainsys.hmsapplication.model.Prescription;
 import com.chainsys.hmsapplication.service.ServicePrescription;
 
 @WebServlet("/PrescriptionServlet")
@@ -31,11 +31,11 @@ public class PrescriptionServlet extends HttpServlet {
 		int ofee = Integer.parseInt(otherfee);
 
 		ServicePrescription imp = new ServicePrescription();
-		Prescriptionlist pres = new Prescriptionlist();
-		pres.setPatientname(Patientname);
-		pres.setDoctorname(Doctorname);
+		Prescription pres = new Prescription();
+		pres.setPatientName(Patientname);
+		pres.setDoctorName(Doctorname);
 		pres.setComments(comments);
-		pres.setTotalamt(ofee);
+		pres.setTotalAmt(ofee);
 
 		int doctorFees = 0;
 		try {

@@ -1,7 +1,7 @@
 <%@page import="com.chainsys.hmsapplication.service.ServiceAppointment"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.chainsys.hmsapplication.dao.impl.Impappointment"%>
-<%@page import="com.chainsys.hmsapplication.model.Appointmentlist"%>
+<%@page import="com.chainsys.hmsapplication.model.Appointment"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -43,7 +43,7 @@
 
 
 <%
-ArrayList<Appointmentlist> lists = (ArrayList)request.getAttribute("list");
+	ArrayList<Appointment> lists = (ArrayList)request.getAttribute("list");
 %>
 <form action = "AppointmentVisitedServlet">
 <table border="1">
@@ -60,17 +60,17 @@ ArrayList<Appointmentlist> lists = (ArrayList)request.getAttribute("list");
 </thead>
 <tbody>
 <%
-for (Appointmentlist rs : lists) {
+	for (Appointment rs : lists) {
 %>
 <tr>
-<td><%=rs.getAppid()%></td>
-<td><%=rs.getPatientid()%></td>
+<td><%=rs.getAppointmentId()%></td>
+<td><%=rs.getPatientId()%></td>
 <td><%=rs.getPurpose()%></td>
-<td><%=rs.getDoctorid()%></td>
-<td><%=rs.getAppdate()%></td>
-<td><%=rs.getApptime()%></td>
-<td><%=rs.getVisited() %></td>
-<td><button name="yid" type ="submit" class="button" value=<%=rs.getAppid()%> >Yes</button></td>
+<td><%=rs.getDoctorId()%></td>
+<td><%=rs.getAppointmentDate()%></td>
+<td><%=rs.getAppointmentTime()%></td>
+<td><%=rs.getVisited()%></td>
+<td><button name="yid" type ="submit" class="button" value=<%=rs.getAppointmentId()%> >Yes</button></td>
 </tr>
 
 <%

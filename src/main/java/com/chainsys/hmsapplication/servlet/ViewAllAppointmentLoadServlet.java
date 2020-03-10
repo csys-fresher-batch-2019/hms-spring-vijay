@@ -11,30 +11,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.service.ServiceDoctor;
+import com.chainsys.hmsapplication.model.Appointment;
+import com.chainsys.hmsapplication.service.ServiceAppointment;
 
-
-@WebServlet("/Appointmentload")
-public class Appointmentload extends HttpServlet {
+@WebServlet("/ViewAllAppointmentLoadServlet")
+public class ViewAllAppointmentLoadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-   
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		ServiceDoctor doc=new ServiceDoctor();
+
+		ServiceAppointment obj = new ServiceAppointment();
+
 		try {
-			List<Integer> docid = doc.doctorid();
-			request.setAttribute("docid", docid);
-			
-			RequestDispatcher sp= request.getRequestDispatcher("Appointment.jsp");
+			List<Appointment> list = obj.viewapp();
+
+			request.setAttribute("list", list);
+
+			RequestDispatcher sp = request.getRequestDispatcher("ViewAllAppointments.jsp");
 			sp.forward(request, response);
 		} catch (Dbexception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+
 	}
 
 }

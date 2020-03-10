@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Doctorlist;
+import com.chainsys.hmsapplication.model.Doctor;
 import com.chainsys.hmsapplication.service.ServiceDoctor;
 
 @WebServlet("/DoctorServlet")
@@ -25,16 +25,16 @@ public class DoctorServlet extends HttpServlet {
 		String Splid = request.getParameter("splid");
 		String Fee = request.getParameter("fee");
 
-		Doctorlist doc = new Doctorlist();
+		Doctor doc = new Doctor();
 
 		ServiceDoctor docs = new ServiceDoctor();
 		int id = Integer.parseInt(Docid);
-		doc.setDoctorid(id);
-		doc.setDoctorname(Docname);
+		doc.setDoctorId(id);
+		doc.setDoctorName(Docname);
 		int spl = Integer.parseInt(Splid);
-		doc.setSplzationid(spl);
+		doc.setSpecializationId(spl);
 		int fees = Integer.parseInt(Fee);
-		doc.setConsultingfee(fees);
+		doc.setConsultationFee(fees);
 
 		try {
 			docs.adddoctor(doc);

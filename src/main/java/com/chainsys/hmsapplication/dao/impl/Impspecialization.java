@@ -10,18 +10,18 @@ import org.springframework.stereotype.Repository;
 
 import com.chainsys.hmsapplication.dao.Interfacespl;
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Splzationlist;
+import com.chainsys.hmsapplication.model.Specialization;
 import com.chainsys.hmsapplication.util.*;
 
 @Repository
 public class Impspecialization implements Interfacespl {
 
-	public void saveSpecialization(Splzationlist adspl) throws Dbexception {
+	public void saveSpecialization(Specialization adspl) throws Dbexception {
 
 		String sql = "insert into splzations values(?,?)";
 		try (Connection con = connections.TestConnections(); PreparedStatement pst = con.prepareStatement(sql);) {
-			pst.setInt(1, adspl.getSplzationid());
-			pst.setString(2, adspl.getSplzationname());
+			pst.setInt(1, adspl.getSpecializationId());
+			pst.setString(2, adspl.getSpecializationName());
 			pst.executeUpdate();
 
 		}
@@ -31,17 +31,17 @@ public class Impspecialization implements Interfacespl {
 		}
 	}
 
-	public ArrayList<Splzationlist> viewSpecialization() throws Dbexception {
+	public ArrayList<Specialization> viewSpecialization() throws Dbexception {
 
 		String sql = "select * from splzations";
-		ArrayList<Splzationlist> s1 = new ArrayList<Splzationlist>();
+		ArrayList<Specialization> s1 = new ArrayList<Specialization>();
 		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
-					Splzationlist splli = new Splzationlist();
-					splli.setSplzationid(rs.getInt("splzation_id"));
-					splli.setSplzationname(rs.getString("splzation_name"));
-					s1.add(splli);
+					Specialization spllist = new Specialization();
+					spllist.setSpecializationId(rs.getInt("splzation_id"));
+					spllist.setSpecializationName(rs.getString("splzation_name"));
+					s1.add(spllist);
 				}
 			}
 			return s1;

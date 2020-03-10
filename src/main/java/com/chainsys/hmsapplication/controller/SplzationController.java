@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chainsys.hmsapplication.dao.impl.Impspecialization;
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Splzationlist;
+import com.chainsys.hmsapplication.model.Specialization;
 
 @RestController
 @RequestMapping("api")
@@ -19,8 +19,8 @@ public class SplzationController {
 	Impspecialization Impspl = new Impspecialization();
 	
 	@GetMapping("/viewSpecialization")
-	public ArrayList<Splzationlist> viewspl(){
-		ArrayList<Splzationlist> list=null;
+	public ArrayList<Specialization> viewspl(){
+		ArrayList<Specialization> list=null;
 		
 		try {
 			list=Impspl.viewSpecialization();
@@ -34,9 +34,9 @@ public class SplzationController {
 	@GetMapping("/addSpecialization")
 	public void addSpecialization(@RequestParam("splzation_id")int splzationid,@RequestParam("splzation_name")String Splzationname) {
 	
-		Splzationlist spl=new Splzationlist();
-		spl.setSplzationid(splzationid);
-		spl.setSplzationname(Splzationname);
+		Specialization spl=new Specialization();
+		spl.setSpecializationId(splzationid);
+		spl.setSpecializationName(Splzationname);
 		
 		try {
 			Impspl.saveSpecialization(spl);

@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.model.Appointmentlist;
+import com.chainsys.hmsapplication.model.Appointment;
 import com.chainsys.hmsapplication.randomnumber.Randomnumber;
 import com.chainsys.hmsapplication.service.ServiceAppointment;
 import com.chainsys.hmsapplication.util.Testconfirm;
 
-@WebServlet("/Appointmentservlet")
-public class Appointmentservlet extends HttpServlet {
+@WebServlet("/AppointmentServlet")
+public class AppointmentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -29,28 +29,25 @@ public class Appointmentservlet extends HttpServlet {
 		String Apptime = request.getParameter("time");
 		String Email = request.getParameter("email");
 
-		Appointmentlist li = new Appointmentlist();
+		Appointment list = new Appointment();
 
-		li.setAppid(Randomnumber.getrandom());
+		list.setAppointmentId(Randomnumber.getrandom());
 		int patientId = Integer.parseInt(patientIdstr);
-		li.setPatientid(patientId);
-		li.setPurpose(purpose);
+		list.setPatientId(patientId);
+		list.setPurpose(purpose);
 		int doctorId = Integer.parseInt(doctorid);
-		li.setDoctorid(doctorId);
+		list.setDoctorId(doctorId);
 		LocalDate l = LocalDate.parse(Appdate);
-		li.setAppdate(l);
-		li.setApptime(Apptime);
-		li.setEmail(Email);
+		list.setAppointmentDate(l);
+		list.setAppointmentTime(Apptime);
+		list.setEmail(Email);
 
-		// Mail obj=new Mail();
-		// obj.send(from, password, to, sub, appid, patientid, doctorid, appdate,
-		// apptime);
 		ServiceAppointment lu = new ServiceAppointment();
 		try {
-			System.out.println(li);
-			lu.addappointment(li);
-			Testconfirm.main(li.getAppid(), li.getPatientid(), li.getDoctorid(), li.getAppdate(), li.getApptime(),
-					li.getEmail());
+
+			lu.addappointment(list);
+			Testconfirm.main(list.getAppointmentId(), list.getPatientId(), list.getDoctorId(), list.getAppointmentDate(),
+					list.getAppointmentTime(), list.getEmail());
 
 		} catch (Dbexception e1) {
 			e1.printStackTrace();
