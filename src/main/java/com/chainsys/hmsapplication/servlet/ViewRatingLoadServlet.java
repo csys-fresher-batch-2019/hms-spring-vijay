@@ -25,7 +25,7 @@ public class ViewRatingLoadServlet extends HttpServlet {
 
 		ServiceOverall imp = new ServiceOverall();
 		try {
-			List<OverallRating> list = imp.viewrating();
+			List<OverallRating> list = imp.viewRating();
 
 			request.setAttribute("list", list);
 

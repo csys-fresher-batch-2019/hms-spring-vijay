@@ -44,7 +44,7 @@ public class AppointmentServlet extends HttpServlet {
 
 		ServiceAppointment service = new ServiceAppointment();
 		try {
-			service.addappointment(list);
+			service.appendAppointment(list);
 			Testconfirm.main(list.getAppointmentId(), list.getPatientId(), list.getDoctorId(),
 					list.getAppointmentDate(), list.getAppointmentTime(), list.getEmail());
 

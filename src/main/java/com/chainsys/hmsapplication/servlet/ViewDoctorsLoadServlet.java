@@ -25,7 +25,7 @@ public class ViewDoctorsLoadServlet extends HttpServlet {
 
 		ServiceDoctor doc = new ServiceDoctor();
 		try {
-			List<Doctor> list = doc.viewdoctor();
+			List<Doctor> list = doc.viewDoctor();
 
 			request.setAttribute("list", list);
 

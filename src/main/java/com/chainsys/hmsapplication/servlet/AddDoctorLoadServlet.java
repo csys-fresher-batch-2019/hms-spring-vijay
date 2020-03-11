@@ -23,7 +23,7 @@ public class AddDoctorLoadServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		ServiceSpecialization splzation = new ServiceSpecialization();
 		try {
-			List<Integer> spl = splzation.getspl();
+			List<Integer> spl = splzation.listSpecialization();
 			request.setAttribute("spl", spl);
 
 			RequestDispatcher sp = request.getRequestDispatcher("AddDoctor.jsp");

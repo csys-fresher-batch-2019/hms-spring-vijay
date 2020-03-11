@@ -21,7 +21,7 @@ public class ViewAllAppointmentServlet extends HttpServlet {
 
 		ServiceAppointment impapp = new ServiceAppointment();
 		try {
-			impapp.viewapp();
+			impapp.viewAppointment();
 		} catch (Dbexception e) {
 			e.printStackTrace();
 		}

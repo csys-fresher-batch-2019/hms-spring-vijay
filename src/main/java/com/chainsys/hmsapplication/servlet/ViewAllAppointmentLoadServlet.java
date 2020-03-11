@@ -26,7 +26,7 @@ public class ViewAllAppointmentLoadServlet extends HttpServlet {
 		ServiceAppointment obj = new ServiceAppointment();
 
 		try {
-			List<Appointment> list = obj.viewapp();
+			List<Appointment> list = obj.viewAppointment();
 
 			request.setAttribute("list", list);
 

@@ -8,13 +8,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Repository;
-import com.chainsys.hmsapplication.dao.Interfacedoctor;
+import com.chainsys.hmsapplication.dao.DoctorDao;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Doctor;
 import com.chainsys.hmsapplication.util.ConnectionUtil;
 
 @Repository
-public class Impdoctor implements Interfacedoctor {
+public class DoctorDaoImpl implements DoctorDao {
 
 	public void saveDoctor(Doctor addoc) throws Dbexception {
 		String sql = "insert into doctorlist values(?,?,?,?)";
@@ -64,7 +64,7 @@ public class Impdoctor implements Interfacedoctor {
 		}
 	}
 
-	public ArrayList<String> listDoctorName() throws Dbexception {
+	public ArrayList<String> findAllDoctorNameList() throws Dbexception {
 		String sql = "select distinct doctor_name from doctorlist ";
 		ArrayList<String> doctorlist = new ArrayList<>();
 		try (Connection con = ConnectionUtil.getConnection(); Statement stmt = con.createStatement();) {
@@ -81,7 +81,7 @@ public class Impdoctor implements Interfacedoctor {
 		}
 	}
 
-	public List<Integer> listDoctorId() throws Dbexception {
+	public List<Integer> findAllDoctorIdList() throws Dbexception {
 		String sql = "select distinct doctor_id from doctorlist ";
 		ArrayList<Integer> docid = new ArrayList<>();
 		try (Connection con = ConnectionUtil.getConnection(); Statement stmt = con.createStatement();) {

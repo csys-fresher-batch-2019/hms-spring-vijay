@@ -21,7 +21,7 @@ public class ViewRegisteredServlet extends HttpServlet {
 
 		ServiceRegistration patient = new ServiceRegistration();
 		try {
-			patient.viewpatient();
+			patient.viewPatient();
 		} catch (Dbexception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

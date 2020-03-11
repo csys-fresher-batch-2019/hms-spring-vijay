@@ -9,13 +9,13 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Repository;
 
-import com.chainsys.hmsapplication.dao.Interfaceprescription;
+import com.chainsys.hmsapplication.dao.PrescriptionDao;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Prescription;
 import com.chainsys.hmsapplication.util.ConnectionUtil;
 
 @Repository
-public class Impprescription implements Interfaceprescription {
+public class PrescriptionDaoImpl implements PrescriptionDao {
 
 	public int getDoctorFee(String doctorName) throws Dbexception {
 		int fees = 0;

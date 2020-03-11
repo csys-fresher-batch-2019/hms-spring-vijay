@@ -5,7 +5,7 @@ import java.util.List;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Appointment;
 
-public interface Interfaceapp {
+public interface AppointmentDao {
 	public void saveAppointment(Appointment a) throws Dbexception;
 
 	public void updateAppointment(int pid) throws Dbexception;

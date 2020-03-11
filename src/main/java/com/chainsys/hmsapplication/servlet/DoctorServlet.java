@@ -37,7 +37,7 @@ public class DoctorServlet extends HttpServlet {
 		doc.setConsultationFee(fees);
 
 		try {
-			docs.adddoctor(doc);
+			docs.appendDoctor(doc);
 			request.setAttribute("infoMessage", "Doctor Added");
 		} catch (Dbexception e) {
 			request.setAttribute("errorMessage", "Doctor Not Added ");

@@ -41,7 +41,7 @@ public class RegistrationServlet extends HttpServlet {
 		p1.setPhoneNo(ph);
 
 		try {
-			obj.addpatient(p1);
+			obj.appendPatient(p1);
 			request.setAttribute("infoMessage", "Patient Registered");
 		} catch (Exception e) {
 			request.setAttribute("infoMessage", "Patient Not Registered");

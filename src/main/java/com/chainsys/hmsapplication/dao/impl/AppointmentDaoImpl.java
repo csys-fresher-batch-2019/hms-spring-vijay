@@ -11,13 +11,13 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.chainsys.hmsapplication.dao.Interfaceapp;
+import com.chainsys.hmsapplication.dao.AppointmentDao;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Appointment;
 import com.chainsys.hmsapplication.util.ConnectionUtil;
 
 @Repository
-public class Impappointment implements Interfaceapp {
+public class AppointmentDaoImpl implements AppointmentDao {
 
 	public void saveAppointment(Appointment adapp) throws Dbexception {
 

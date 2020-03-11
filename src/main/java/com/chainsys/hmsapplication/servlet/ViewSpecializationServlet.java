@@ -21,7 +21,7 @@ public class ViewSpecializationServlet extends HttpServlet {
 
 		ServiceSpecialization imp = new ServiceSpecialization();
 		try {
-			imp.viewspl();
+			imp.viewSpecialization();
 		} catch (Dbexception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

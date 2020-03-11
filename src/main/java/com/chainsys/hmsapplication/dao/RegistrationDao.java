@@ -5,7 +5,7 @@ import java.util.List;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.PatientRegistration;
 
-public interface InterfaceRegistration {
+public interface RegistrationDao {
 
 	public void savePatient(PatientRegistration p) throws Dbexception;
 

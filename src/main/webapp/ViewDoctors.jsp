@@ -1,7 +1,7 @@
 <%@page import="com.chainsys.hmsapplication.service.ServiceDoctor"%>
 <%@page import="com.chainsys.hmsapplication.model.Doctor"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.chainsys.hmsapplication.dao.impl.Impdoctor"%>
+<%@page import="com.chainsys.hmsapplication.dao.impl.DoctorDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

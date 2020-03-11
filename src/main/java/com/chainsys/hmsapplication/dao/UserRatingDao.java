@@ -3,8 +3,8 @@ package com.chainsys.hmsapplication.dao;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.UserRating;
 
-public interface Interfaceadduserrating {
+public interface UserRatingDao {
 	
-	public void addRating(UserRating u) throws Dbexception;
+	public void appendRating(UserRating u) throws Dbexception;
 
 }

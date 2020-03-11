@@ -5,7 +5,7 @@ import java.util.List;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Prescription;
 
-public interface Interfaceprescription {
+public interface PrescriptionDao {
 
 	public void addPrescriptionData(Prescription L) throws Dbexception;
 

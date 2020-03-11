@@ -2,37 +2,36 @@ package com.chainsys.hmsapplication.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.chainsys.hmsapplication.dao.Interfacedoctor;
-import com.chainsys.hmsapplication.dao.impl.Impdoctor;
+import com.chainsys.hmsapplication.dao.DoctorDao;
+import com.chainsys.hmsapplication.dao.impl.DoctorDaoImpl;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Doctor;
 
 @Service
 public class ServiceDoctor {
-	@Autowired
 
-	Interfacedoctor docs = new Impdoctor();
 
-	public void adddoctor(Doctor addoc) throws Dbexception {
+	DoctorDao docs = new DoctorDaoImpl();
+
+	public void appendDoctor(Doctor addoc) throws Dbexception {
 		docs.saveDoctor(addoc);
 
 	}
 
-	public List<Doctor> viewdoctor() throws Dbexception {
+	public List<Doctor> viewDoctor() throws Dbexception {
 		return docs.viewDoctor();
 
 	}
 
-	public List<String> doclist() throws Dbexception {
-		return docs.listDoctorName();
+	public List<String> findAllDoctorName() throws Dbexception {
+		return docs.findAllDoctorNameList();
 
 	}
 
-	public List<Integer> doctorid() throws Dbexception {
-		return docs.listDoctorId();
+	public List<Integer> findAllDoctorId() throws Dbexception {
+		return docs.findAllDoctorIdList();
 
 	}
 }

@@ -1,7 +1,7 @@
 <%@page
 	import="com.chainsys.hmsapplication.service.ServiceSpecialization"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.chainsys.hmsapplication.dao.impl.Impspecialization"%>
+<%@page import="com.chainsys.hmsapplication.dao.impl.SpecializationDaoImpl"%>
 <%@page import="com.chainsys.hmsapplication.model.Specialization"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>

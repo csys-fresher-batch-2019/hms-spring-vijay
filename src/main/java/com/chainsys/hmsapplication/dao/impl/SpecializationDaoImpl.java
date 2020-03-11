@@ -10,13 +10,13 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.chainsys.hmsapplication.dao.Interfacespl;
+import com.chainsys.hmsapplication.dao.SpecializationDao;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Specialization;
 import com.chainsys.hmsapplication.util.ConnectionUtil;
 
 @Repository
-public class Impspecialization implements Interfacespl {
+public class SpecializationDaoImpl implements SpecializationDao {
 
 	public void saveSpecialization(Specialization adspl) throws Dbexception {
 
@@ -52,7 +52,7 @@ public class Impspecialization implements Interfacespl {
 		}
 	}
 
-	public ArrayList<Integer> listSpecialization() throws Dbexception {
+	public ArrayList<Integer> findAllSpecialization() throws Dbexception {
 		String sql = "select splzation_id from splzations";
 		ArrayList<Integer> spl = new ArrayList<>();
 		try (Connection con = ConnectionUtil.getConnection(); Statement stmt = con.createStatement();) {

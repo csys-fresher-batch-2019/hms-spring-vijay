@@ -25,7 +25,7 @@ public class ViewRegisteredLoadServlet extends HttpServlet {
 		System.out.println("not done");
 		ServiceRegistration pat = new ServiceRegistration();
 		try {
-			List<PatientRegistration> list = pat.viewpatient();
+			List<PatientRegistration> list = pat.viewPatient();
 			System.out.println("not responded");
 			request.setAttribute("list", list);
 			

@@ -24,7 +24,7 @@ public class AppointmentVisitedServlet extends HttpServlet {
 		System.out.println(s);
 		ServiceAppointment impapp = new ServiceAppointment();
 		try {
-			impapp.updatevisited(yid);
+			impapp.updateVisited(yid);
 		} catch (Dbexception e) {
 			e.printStackTrace();
 		}

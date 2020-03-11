@@ -8,15 +8,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Repository;
-import com.chainsys.hmsapplication.dao.Interfaceoverallrating;
+import com.chainsys.hmsapplication.dao.OverallRatingDao;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.OverallRating;
 import com.chainsys.hmsapplication.util.ConnectionUtil;
 
 @Repository
-public class Impoverall implements Interfaceoverallrating {
+public class OverallDaoImpl implements OverallRatingDao {
 
-	public void syncRating(int doctorid) throws Dbexception {
+	public void calculateRating(int doctorid) throws Dbexception {
 		String sql1 = "select avg(rating) as avg from rating where doctor_id=?";
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement pst = con.prepareStatement(sql1);) {
 			pst.setInt(1, doctorid);

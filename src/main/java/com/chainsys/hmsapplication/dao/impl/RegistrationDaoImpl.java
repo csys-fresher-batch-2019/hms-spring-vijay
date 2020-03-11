@@ -11,13 +11,13 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.chainsys.hmsapplication.dao.InterfaceRegistration;
+import com.chainsys.hmsapplication.dao.RegistrationDao;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.PatientRegistration;
 import com.chainsys.hmsapplication.util.ConnectionUtil;
 
 @Repository
-public class ImpRegistration implements InterfaceRegistration {
+public class RegistrationDaoImpl implements RegistrationDao {
 
 	public void savePatient(PatientRegistration adpatreg) throws Dbexception {
 		String sql = "insert into patientReg(patient_id,patientname,adharcardno,dob,gender,phoneno,patientreg_date)values(patient_id.nextval,?,?,?,?,?,sysdate)";

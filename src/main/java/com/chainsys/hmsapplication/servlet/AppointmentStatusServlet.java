@@ -25,7 +25,7 @@ public class AppointmentStatusServlet extends HttpServlet {
 
 		ServiceAppointment impapp = new ServiceAppointment();
 		try {
-			impapp.updateappointment(pid);
+			impapp.updateAppointment(pid);
 			RequestDispatcher obj = request.getRequestDispatcher("ViewAppointmentsLoadServlet");
 			obj.forward(request, response);
 

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chainsys.hmsapplication.dao.impl.Impspecialization;
+import com.chainsys.hmsapplication.dao.impl.SpecializationDaoImpl;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Specialization;
 
@@ -17,7 +17,7 @@ import com.chainsys.hmsapplication.model.Specialization;
 
 public class SpecializationController {
 	
-	Impspecialization Impspl = new Impspecialization();
+	SpecializationDaoImpl Impspl = new SpecializationDaoImpl();
 	
 	@GetMapping("/viewSpecialization")
 	public List<Specialization> viewspl(){

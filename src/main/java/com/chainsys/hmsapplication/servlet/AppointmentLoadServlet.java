@@ -25,7 +25,7 @@ public class AppointmentLoadServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		ServiceDoctor doc=new ServiceDoctor();
 		try {
-			List<Integer> docid = doc.doctorid();
+			List<Integer> docid = doc.findAllDoctorId();
 			request.setAttribute("docid", docid);
 			
 			RequestDispatcher sp= request.getRequestDispatcher("Appointment.jsp");

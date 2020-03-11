@@ -1,7 +1,7 @@
 <%@page import="com.chainsys.hmsapplication.servlet.DoctorServlet"%>
 <%@page import="com.chainsys.hmsapplication.service.ServiceAppointment"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.chainsys.hmsapplication.dao.impl.Impappointment"%>
+<%@page import="com.chainsys.hmsapplication.dao.impl.AppointmentDaoImpl"%>
 <%@page import="com.chainsys.hmsapplication.model.Appointment"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>

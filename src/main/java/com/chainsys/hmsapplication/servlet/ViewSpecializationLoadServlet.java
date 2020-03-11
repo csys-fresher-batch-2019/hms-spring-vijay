@@ -24,7 +24,7 @@ public class ViewSpecializationLoadServlet extends HttpServlet {
 		RequestDispatcher sp = null;
 		ServiceSpecialization imp = new ServiceSpecialization();
 		try {
-			List<Specialization> list = imp.viewspl();
+			List<Specialization> list = imp.viewSpecialization();
 
 			request.setAttribute("list", list);
 			sp = request.getRequestDispatcher("ViewSpecialization.jsp");

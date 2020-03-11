@@ -30,7 +30,7 @@ public class SpecializationServlet extends HttpServlet {
 		spl.setSpecializationId(add);
 		spl.setSpecializationName(name);
 		try {
-			imp.addspecialization(spl);
+			imp.appendSpecialization(spl);
 			response.sendRedirect("SpecialAdded.jsp");
 		} catch (Dbexception e) {
 			// TODO Auto-generated catch block

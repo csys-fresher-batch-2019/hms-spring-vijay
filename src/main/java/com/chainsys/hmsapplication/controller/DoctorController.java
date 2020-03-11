@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chainsys.hmsapplication.dao.impl.Impdoctor;
+import com.chainsys.hmsapplication.dao.impl.DoctorDaoImpl;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Doctor;
 
 @RestController
 @RequestMapping("api")
 public class DoctorController {
-	Impdoctor doc = new Impdoctor();
+	DoctorDaoImpl doc = new DoctorDaoImpl();
 
 	@GetMapping("/viewdoctors")
 

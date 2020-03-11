@@ -22,7 +22,7 @@ public class ViewRatingServlet extends HttpServlet {
 		ServiceOverall imp = new ServiceOverall();
 
 		try {
-			imp.viewrating();
+			imp.viewRating();
 		} catch (Dbexception e) {
 			e.printStackTrace();
 		}

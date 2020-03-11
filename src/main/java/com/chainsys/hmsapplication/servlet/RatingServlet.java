@@ -33,7 +33,7 @@ public class RatingServlet extends HttpServlet {
 		int rtg = Integer.parseInt(rating);
 		ur.setRating(rtg);
 		try {
-			imp.addrating(ur);
+			imp.addRating(ur);
 		} catch (Dbexception e) {
 			e.printStackTrace();
 		}

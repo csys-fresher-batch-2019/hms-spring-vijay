@@ -21,7 +21,7 @@ public class ViewDoctorServlet extends HttpServlet {
 
 		ServiceDoctor doc = new ServiceDoctor();
 		try {
-			doc.viewdoctor();
+			doc.viewDoctor();
 		} catch (Dbexception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

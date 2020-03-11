@@ -22,7 +22,7 @@ public class PrescriptionLoadServlet extends HttpServlet {
 
 		ServiceDoctor doc = new ServiceDoctor();
 		try {
-			List<String> doctorlist = doc.doclist();
+			List<String> doctorlist = doc.findAllDoctorName();
 			request.setAttribute("doctorlist", doctorlist);
 
 			RequestDispatcher sp = request.getRequestDispatcher("Prescription.jsp");

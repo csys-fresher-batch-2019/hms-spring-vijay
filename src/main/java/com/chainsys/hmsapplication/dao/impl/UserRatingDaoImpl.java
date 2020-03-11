@@ -6,15 +6,15 @@ import java.sql.SQLException;
 
 import org.springframework.stereotype.Repository;
 
-import com.chainsys.hmsapplication.dao.Interfaceadduserrating;
+import com.chainsys.hmsapplication.dao.UserRatingDao;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.UserRating;
 import com.chainsys.hmsapplication.util.*;
 
 @Repository
-public class Impuserrating implements Interfaceadduserrating {
+public class UserRatingDaoImpl implements UserRatingDao {
 
-	public void addRating(UserRating adrating) throws Dbexception {
+	public void appendRating(UserRating adrating) throws Dbexception {
 
 		String sql = "insert into rating values(?,?,?)";
 		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement pst = con.prepareStatement(sql);) {
@@ -22,8 +22,8 @@ public class Impuserrating implements Interfaceadduserrating {
 			pst.setInt(2, adrating.getDoctorId());
 			pst.setFloat(3, adrating.getRating());
 			pst.executeUpdate();
-			Impoverall obj = new Impoverall();
-			obj.syncRating(adrating.getDoctorId());
+			OverallDaoImpl obj = new OverallDaoImpl();
+			obj.calculateRating(adrating.getDoctorId());
 
 		} catch (SQLException e) {
 			throw new Dbexception("Insertion into Rating failed");

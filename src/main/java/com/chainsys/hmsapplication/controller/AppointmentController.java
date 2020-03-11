@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chainsys.hmsapplication.dao.impl.Impappointment;
+import com.chainsys.hmsapplication.dao.impl.AppointmentDaoImpl;
 import com.chainsys.hmsapplication.dto.Message;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Appointment;
@@ -19,7 +19,7 @@ import com.chainsys.hmsapplication.model.Appointment;
 @RestController
 @RequestMapping("api")
 public class AppointmentController {
-	Impappointment app = new Impappointment();
+	AppointmentDaoImpl app = new AppointmentDaoImpl();
 
 	@PostMapping("/UpdateAppointmentStatus")
 	public ResponseEntity<?> updatestatus(@RequestParam("app_id") int appid) throws Dbexception {
