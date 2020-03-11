@@ -27,9 +27,7 @@
 }
 </style>
 <body>
-	<%
-		ArrayList<Doctor> lists = (ArrayList) request.getAttribute("list");
-	%>
+
 	<form action="ViewDoctorServlet">
 		<table border="1">
 			<thead>
@@ -38,19 +36,16 @@
 					<th>DOCTOR NAME</th>
 					<th>SPECIALIZATION ID</th>
 					<th>CONSULTING FEE</th>
-					<%
-						for (Doctor rs : lists) {
-					%>
+					
+				<c:forEach items = "${list}" var = "l" >
 				
 				<tr>
-					<td><%=rs.getDoctorId()%></td>
-					<td><%=rs.getDoctorName()%></td>
-					<td><%=rs.getSpecializationId()%></td>
-					<td><%=rs.getConsultationFee()%></td>
-					<%
-						}
-					%>
-				
+					<td>${l.doctorId}</td>
+					<td>${l.doctorName}</td>
+					<td>${l.specializationId}</td>
+					<td>${l.consultationFee}</td>
+				</tr>
+				</c:forEach>
 		</table>
 	</form>
 	<a href="index.jsp" class="buttons">MAIN MENU</a>

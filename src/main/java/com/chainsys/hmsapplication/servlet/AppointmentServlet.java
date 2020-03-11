@@ -42,16 +42,16 @@ public class AppointmentServlet extends HttpServlet {
 		list.setAppointmentTime(Apptime);
 		list.setEmail(Email);
 
-		ServiceAppointment lu = new ServiceAppointment();
+		ServiceAppointment service = new ServiceAppointment();
 		try {
-
-			lu.addappointment(list);
-			Testconfirm.main(list.getAppointmentId(), list.getPatientId(), list.getDoctorId(), list.getAppointmentDate(),
-					list.getAppointmentTime(), list.getEmail());
+			service.addappointment(list);
+			Testconfirm.main(list.getAppointmentId(), list.getPatientId(), list.getDoctorId(),
+					list.getAppointmentDate(), list.getAppointmentTime(), list.getEmail());
 
 		} catch (Dbexception e1) {
 			e1.printStackTrace();
 		}
 		response.sendRedirect("Mailsent.jsp");
+
 	}
 }

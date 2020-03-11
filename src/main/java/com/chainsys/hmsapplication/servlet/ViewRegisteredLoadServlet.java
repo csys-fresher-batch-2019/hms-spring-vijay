@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.PatientRegistration;
-import com.chainsys.hmsapplication.service.ServicePatient;
+import com.chainsys.hmsapplication.service.ServiceRegistration;
 
 @WebServlet("/ViewRegisteredLoadServlet")
 public class ViewRegisteredLoadServlet extends HttpServlet {
@@ -23,7 +23,7 @@ public class ViewRegisteredLoadServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		System.out.println("not done");
-		ServicePatient pat = new ServicePatient();
+		ServiceRegistration pat = new ServiceRegistration();
 		try {
 			List<PatientRegistration> list = pat.viewpatient();
 			System.out.println("not responded");

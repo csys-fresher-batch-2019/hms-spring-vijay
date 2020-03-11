@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.model.PatientRegistration;
-import com.chainsys.hmsapplication.service.ServicePatient;
+import com.chainsys.hmsapplication.service.ServiceRegistration;
 
-@WebServlet("/Registrationservlet")
+@WebServlet("/RegistrationServlet")
 
 public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,7 +27,7 @@ public class RegistrationServlet extends HttpServlet {
 		String gender = request.getParameter("gender");
 		String phno = request.getParameter("mobile number");
 
-		ServicePatient obj = new ServicePatient();
+		ServiceRegistration obj = new ServiceRegistration();
 
 		PatientRegistration p1 = new PatientRegistration();
 

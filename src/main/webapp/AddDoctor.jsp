@@ -1,4 +1,5 @@
-<%@page import="com.chainsys.hmsapplication.service.ServiceSplzations"%>
+<%@page
+	import="com.chainsys.hmsapplication.service.ServiceSpecialization"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.chainsys.hmsapplication.dao.impl.Impspecialization"%>
 <%@page import="com.chainsys.hmsapplication.model.Specialization"%>
@@ -47,23 +48,17 @@
 				<td>Enter Doctor Name
 				<td><input type="text" name="docname">
 			</tr>
-		
-			
-				<%
-				ArrayList<Integer> spl = (ArrayList) request.getAttribute("spl");
-				%>
-				
-			  <c:set var="specializations" value="<%=spl%>"></c:set>
+
 			<tr>
 				<td>Enter Specialization ID
 				<td><input type="number" name="splid" list="splid"> <datalist
 						id="splid">
-						<c:forEach items="${specializations}" var="s">
-   						 
-   						 <option value="${s}">${s}</option>
-   						 </c:forEach>
-						
-						
+						<c:forEach items="${spl}" var="s">
+
+							<option value="${s}">${s}</option>
+						</c:forEach>
+
+
 					</datalist>
 			</tr>
 			<tr>

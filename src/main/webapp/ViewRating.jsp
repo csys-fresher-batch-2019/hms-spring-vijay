@@ -27,10 +27,7 @@
 }
 </style>
 <body>
-<!--Impoverall imp=new Impoverall();  -->
-<%
-	ArrayList<OverallRating> lists = (ArrayList)request.getAttribute("list");
-%>
+
 <form action="ViewRatingServlet">
 <table border="1">
 <thead>
@@ -40,18 +37,12 @@
 </tr>
 </thead>
 <tbody>
-<%
-	for (OverallRating rs : lists) {
-%>
+<c:forEach items = "${list}" var = "l" >
 <tr>
-<td><%=rs.getDoctorId()%></td>
-<td><%=rs.getRating() %></td>
+<td>${l.doctorId}</td>
+<td>${l.rating}</td>
 </tr>
-
-<%
-}
-%>
-
+</c:forEach>
 </form>
 </tbody>
 </table>

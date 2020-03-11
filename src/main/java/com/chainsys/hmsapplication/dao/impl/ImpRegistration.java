@@ -7,21 +7,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.chainsys.hmsapplication.dao.InterfacePatients;
+import com.chainsys.hmsapplication.dao.InterfaceRegistration;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.PatientRegistration;
-import com.chainsys.hmsapplication.util.connections;
+import com.chainsys.hmsapplication.util.ConnectionUtil;
 
 @Repository
-public class ImpPatients implements InterfacePatients {
-
+public class ImpRegistration implements InterfaceRegistration {
 
 	public void savePatient(PatientRegistration adpatreg) throws Dbexception {
 		String sql = "insert into patientReg(patient_id,patientname,adharcardno,dob,gender,phoneno,patientreg_date)values(patient_id.nextval,?,?,?,?,?,sysdate)";
-		try (Connection con = connections.TestConnections(); PreparedStatement pst = con.prepareStatement(sql);) {
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setString(1, adpatreg.getPatientName());
 			pst.setLong(2, adpatreg.getAdharNo());
 			java.sql.Date dat = java.sql.Date.valueOf(adpatreg.getDob());
@@ -34,10 +34,10 @@ public class ImpPatients implements InterfacePatients {
 		}
 	}
 
-	public ArrayList<PatientRegistration> viewPatient() throws Dbexception {
+	public List<PatientRegistration> viewPatient() throws Dbexception {
 		String sql = "select * from patientReg";
 		ArrayList<PatientRegistration> obj = new ArrayList<PatientRegistration>();
-		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
+		try (Connection con = ConnectionUtil.getConnection(); Statement stmt = con.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
 					PatientRegistration p2 = new PatientRegistration();

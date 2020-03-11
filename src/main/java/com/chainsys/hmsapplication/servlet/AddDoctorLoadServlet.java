@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.service.ServiceSplzations;
+import com.chainsys.hmsapplication.service.ServiceSpecialization;
 
 @WebServlet("/AddDoctorLoadServlet")
 public class AddDoctorLoadServlet extends HttpServlet {
@@ -21,7 +21,7 @@ public class AddDoctorLoadServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		ServiceSplzations splzation = new ServiceSplzations();
+		ServiceSpecialization splzation = new ServiceSpecialization();
 		try {
 			List<Integer> spl = splzation.getspl();
 			request.setAttribute("spl", spl);

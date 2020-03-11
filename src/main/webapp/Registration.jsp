@@ -31,7 +31,7 @@
 		if (errorMessage != null)
 			out.println(errorMessage);
 	%>
-<form action="Registrationservlet">
+<form action="RegistrationServlet">
 <CENTER><h2>REGISTRATION FORM</h2>
 <table>
 <tr>

@@ -11,14 +11,14 @@ import org.springframework.stereotype.Repository;
 import com.chainsys.hmsapplication.dao.Interfacedoctor;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Doctor;
-import com.chainsys.hmsapplication.util.connections;
+import com.chainsys.hmsapplication.util.ConnectionUtil;
 
 @Repository
 public class Impdoctor implements Interfacedoctor {
 
 	public void saveDoctor(Doctor addoc) throws Dbexception {
 		String sql = "insert into doctorlist values(?,?,?,?)";
-		try (Connection con = connections.TestConnections(); PreparedStatement pst = con.prepareStatement(sql);) {
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setInt(1, addoc.getDoctorId());
 			pst.setString(2, addoc.getDoctorName());
 			pst.setInt(3, addoc.getSpecializationId());
@@ -33,7 +33,7 @@ public class Impdoctor implements Interfacedoctor {
 
 	public void addOverAllRating(Doctor addoc) throws Dbexception {
 		String sql1 = "insert into overallrating(doctor_id) values(?)";
-		try (Connection con = connections.TestConnections(); PreparedStatement pst1 = con.prepareStatement(sql1);) {
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement pst1 = con.prepareStatement(sql1);) {
 			pst1.setInt(1, addoc.getDoctorId());
 
 			pst1.executeUpdate();
@@ -46,7 +46,7 @@ public class Impdoctor implements Interfacedoctor {
 	public ArrayList<Doctor> viewDoctor() throws Dbexception {
 		String sql = "select * from doctorlist";
 		ArrayList<Doctor> s1 = new ArrayList<Doctor>();
-		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
+		try (Connection con = ConnectionUtil.getConnection(); Statement stmt = con.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
 					Doctor docli = new Doctor();
@@ -67,7 +67,7 @@ public class Impdoctor implements Interfacedoctor {
 	public ArrayList<String> listDoctorName() throws Dbexception {
 		String sql = "select distinct doctor_name from doctorlist ";
 		ArrayList<String> doctorlist = new ArrayList<>();
-		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
+		try (Connection con = ConnectionUtil.getConnection(); Statement stmt = con.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
 
@@ -84,7 +84,7 @@ public class Impdoctor implements Interfacedoctor {
 	public List<Integer> listDoctorId() throws Dbexception {
 		String sql = "select distinct doctor_id from doctorlist ";
 		ArrayList<Integer> docid = new ArrayList<>();
-		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
+		try (Connection con = ConnectionUtil.getConnection(); Statement stmt = con.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
 

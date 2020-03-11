@@ -11,14 +11,14 @@ import org.springframework.stereotype.Repository;
 import com.chainsys.hmsapplication.dao.Interfaceoverallrating;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.OverallRating;
-import com.chainsys.hmsapplication.util.connections;
+import com.chainsys.hmsapplication.util.ConnectionUtil;
 
 @Repository
 public class Impoverall implements Interfaceoverallrating {
 
 	public void syncRating(int doctorid) throws Dbexception {
 		String sql1 = "select avg(rating) as avg from rating where doctor_id=?";
-		try (Connection con = connections.TestConnections(); PreparedStatement pst = con.prepareStatement(sql1);) {
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement pst = con.prepareStatement(sql1);) {
 			pst.setInt(1, doctorid);
 			try (ResultSet rs = pst.executeQuery();) {
 				rs.next();
@@ -32,7 +32,7 @@ public class Impoverall implements Interfaceoverallrating {
 
 	public void updateOverallRating(int doctorid, float average) throws Dbexception {
 		String sql = "update overallrating set rating =? where doctor_id=?";
-		try (Connection con = connections.TestConnections(); PreparedStatement pst1 = con.prepareStatement(sql);) {
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement pst1 = con.prepareStatement(sql);) {
 			pst1.setFloat(1, average);
 			pst1.setInt(2, doctorid);
 			pst1.executeUpdate();
@@ -45,7 +45,7 @@ public class Impoverall implements Interfaceoverallrating {
 	public void addDoctorId(int doc) throws Dbexception {
 
 		String sql = "insert into overallrating(doctor_id) values(?)";
-		try (Connection con = connections.TestConnections(); PreparedStatement pst = con.prepareStatement(sql);) {
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setInt(1, doc);
 			pst.executeUpdate();
 
@@ -58,7 +58,7 @@ public class Impoverall implements Interfaceoverallrating {
 	public List<OverallRating> viewRating() throws Dbexception {
 		String sql = "select * from overallrating ";
 		ArrayList<OverallRating> obj = new ArrayList<>();
-		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
+		try (Connection con = ConnectionUtil.getConnection(); Statement stmt = con.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
 					OverallRating o = new OverallRating();

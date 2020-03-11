@@ -1,6 +1,8 @@
-<%@page import="com.chainsys.hmsapplication.service.ServiceSplzations"%>
+<%@page import="com.chainsys.hmsapplication.service.ServiceSpecialization"%>
 <%@page import="com.chainsys.hmsapplication.model.Specialization"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.chainsys.hmsapplication.dao.impl.Impspecialization"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -28,11 +30,6 @@
 </style>
 <body>
 
-	
-	<%
-			ArrayList<Specialization> lists = (ArrayList)request.getAttribute("list");
-		%>
-
 	<form action="ViewSpecializationServlet">
 		<table border="1">
 			<thead>
@@ -42,17 +39,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<%
-					for (Specialization rs : lists) {
-				%>
+				<c:forEach items = "${list}" var = "l" >
 				<tr>
-					<td><%=rs.getSpecializationId()%></td>
-					<td><%=rs.getSpecializationName()%></td>
+					<td>${l.specializationId }</td>
+					<td>${l.specializationName}</td>
 				</tr>
-
-				<%
-					}
-				%>
+                </c:forEach>
 				<a href="index.jsp" class="buttons">MAIN MENU</a>
 </body>
 </html>

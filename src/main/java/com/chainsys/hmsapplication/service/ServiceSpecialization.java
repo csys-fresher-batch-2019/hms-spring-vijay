@@ -10,7 +10,7 @@ import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Specialization;
 
 @Service
-public class ServiceSplzations {
+public class ServiceSpecialization {
 
 	Interfacespl spl = new Impspecialization();
 

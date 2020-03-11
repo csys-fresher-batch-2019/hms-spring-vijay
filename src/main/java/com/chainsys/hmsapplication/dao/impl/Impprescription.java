@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.chainsys.hmsapplication.dao.Interfaceprescription;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Prescription;
-import com.chainsys.hmsapplication.util.connections;
+import com.chainsys.hmsapplication.util.ConnectionUtil;
 
 @Repository
 public class Impprescription implements Interfaceprescription {
@@ -20,7 +20,7 @@ public class Impprescription implements Interfaceprescription {
 	public int getDoctorFee(String doctorName) throws Dbexception {
 		int fees = 0;
 		String sql1 = "select consultingfee from doctorlist where doctor_name=?";
-		try (Connection con = connections.TestConnections(); PreparedStatement pst1 = con.prepareStatement(sql1);) {
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement pst1 = con.prepareStatement(sql1);) {
 			pst1.setString(1, doctorName);
 			try (ResultSet rs = pst1.executeQuery();) {
 				if (rs.next()) {
@@ -38,7 +38,7 @@ public class Impprescription implements Interfaceprescription {
 		int fee = 0;
 		String sql = "insert into prescription(prescription_id,patient_name,doctorname,comments,total_amt)values(prescription_id.nextval,?,?,?,?)";
 
-		try (Connection con = connections.TestConnections(); PreparedStatement pst = con.prepareStatement(sql);) {
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setString(1, adpres.getPatientName());
 			pst.setString(2, adpres.getDoctorName());
 			pst.setString(3, adpres.getComments());
@@ -64,7 +64,7 @@ public class Impprescription implements Interfaceprescription {
 
 		String sql = "select * from prescription ";
 		ArrayList<Prescription> p = new ArrayList<Prescription>();
-		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
+		try (Connection con = ConnectionUtil.getConnection(); Statement stmt = con.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
 					Prescription presli = new Prescription();

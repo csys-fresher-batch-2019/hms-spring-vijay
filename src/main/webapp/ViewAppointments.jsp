@@ -39,9 +39,6 @@
 </style>
 <body>
 
-<%
-	ArrayList<Appointment> lists = (ArrayList)request.getAttribute("list");
-%>
 <form action = "AppointmentStatusServlet">
 <table border="1">
 <thead>
@@ -56,24 +53,19 @@
 </tr>
 </thead>
 <tbody>
-<%
-	for (Appointment rs : lists) {
-%>
+<c:forEach items = "${list}" var = "l" >
 <tr>
-<td><%=rs.getAppointmentId()%></td>
-<td><%=rs.getPatientId()%></td>
-<td><%=rs.getPurpose()%></td>
-<td><%=rs.getDoctorId()%></td>
-<td><%=rs.getAppointmentDate()%></td>
-<td><%=rs.getAppointmentTime()%></td>
-<td><%=rs.getStatus()%>
-<td><button name="pid" type ="submit" class="button" value=<%=rs.getAppointmentId()%> >Approve</button></td>
+<td>${l.appointmentId}</td>
+<td>${l.patientId}</td>
+<td>${l.purpose}</td>
+<td>${l.doctorId}</td>
+<td>${l.appointmentDate}</td>
+<td>${l.appointmentTime}</td>
+<td>${l.status}</td>
+<td><button name="pid" type ="submit" class="button" value=${l.appointmentId}>Approve</button></td>
 </tr>
 
-<%
-}
-%>
-
+</c:forEach>
 </tbody>
 </table>
 </form>

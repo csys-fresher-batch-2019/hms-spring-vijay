@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.service.ServicePatient;
+import com.chainsys.hmsapplication.service.ServiceRegistration;
 
 @WebServlet("/ViewRegisteredServlet")
 
@@ -19,7 +19,7 @@ public class ViewRegisteredServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		ServicePatient patient = new ServicePatient();
+		ServiceRegistration patient = new ServiceRegistration();
 		try {
 			patient.viewpatient();
 		} catch (Dbexception e) {

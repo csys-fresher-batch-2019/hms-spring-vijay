@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
-import com.chainsys.hmsapplication.service.ServiceSplzations;
+import com.chainsys.hmsapplication.service.ServiceSpecialization;
 
 @WebServlet("/ViewSpecializationServlet")
 
@@ -19,7 +19,7 @@ public class ViewSpecializationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		ServiceSplzations imp = new ServiceSplzations();
+		ServiceSpecialization imp = new ServiceSpecialization();
 		try {
 			imp.viewspl();
 		} catch (Dbexception e) {

@@ -16,7 +16,7 @@ public class ServiceAppointment {
 
 	public void addappointment(Appointment a) throws Dbexception {
 
-		la.saveAppointment(a);
+		 la.saveAppointment(a);
 	}
 
 	public void updateappointment(int pid) throws Dbexception {

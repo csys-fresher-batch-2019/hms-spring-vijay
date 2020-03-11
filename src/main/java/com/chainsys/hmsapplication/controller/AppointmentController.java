@@ -21,6 +21,7 @@ public class AppointmentController {
 	@PostMapping("/UpdateAppointmentStatus")
 	public void updatestatus(@RequestParam("app_id") int appid) throws Dbexception {
 		app.updateAppointment(appid);
+		
 	}
 
 	@PostMapping("/UpdateAppointmentVisited")

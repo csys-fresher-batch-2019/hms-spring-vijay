@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Specialization;
-import com.chainsys.hmsapplication.service.ServiceSplzations;
+import com.chainsys.hmsapplication.service.ServiceSpecialization;
 
 @WebServlet("/SpecializationServlet")
 
@@ -25,7 +25,7 @@ public class SpecializationServlet extends HttpServlet {
 
 		Specialization spl = new Specialization();
 
-		ServiceSplzations imp = new ServiceSplzations();
+		ServiceSpecialization imp = new ServiceSpecialization();
 		int add = Integer.parseInt(id);
 		spl.setSpecializationId(add);
 		spl.setSpecializationName(name);

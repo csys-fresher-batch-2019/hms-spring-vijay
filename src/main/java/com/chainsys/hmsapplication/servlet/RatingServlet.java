@@ -12,9 +12,9 @@ import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.UserRating;
 import com.chainsys.hmsapplication.service.ServiceUserRating;
 
-@WebServlet("/RatingsServlet")
+@WebServlet("/RatingServlet")
 
-public class RatingsServlet extends HttpServlet {
+public class RatingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -26,7 +26,7 @@ public class AppointmentStatusServlet extends HttpServlet {
 		ServiceAppointment impapp = new ServiceAppointment();
 		try {
 			impapp.updateappointment(pid);
-			RequestDispatcher obj = request.getRequestDispatcher("ViewAppointments.jsp");
+			RequestDispatcher obj = request.getRequestDispatcher("ViewAppointmentsLoadServlet");
 			obj.forward(request, response);
 
 		} catch (Dbexception e) {

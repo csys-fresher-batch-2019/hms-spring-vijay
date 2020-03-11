@@ -6,12 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.chainsys.hmsapplication.dao.Interfacespl;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Specialization;
-import com.chainsys.hmsapplication.util.*;
+import com.chainsys.hmsapplication.util.ConnectionUtil;
 
 @Repository
 public class Impspecialization implements Interfacespl {
@@ -19,7 +21,7 @@ public class Impspecialization implements Interfacespl {
 	public void saveSpecialization(Specialization adspl) throws Dbexception {
 
 		String sql = "insert into splzations values(?,?)";
-		try (Connection con = connections.TestConnections(); PreparedStatement pst = con.prepareStatement(sql);) {
+		try (Connection con = ConnectionUtil.getConnection(); PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setInt(1, adspl.getSpecializationId());
 			pst.setString(2, adspl.getSpecializationName());
 			pst.executeUpdate();
@@ -31,11 +33,11 @@ public class Impspecialization implements Interfacespl {
 		}
 	}
 
-	public ArrayList<Specialization> viewSpecialization() throws Dbexception {
+	public List<Specialization> viewSpecialization() throws Dbexception {
 
 		String sql = "select * from splzations";
-		ArrayList<Specialization> s1 = new ArrayList<Specialization>();
-		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
+		List<Specialization> s1 = new ArrayList<Specialization>();
+		try (Connection con = ConnectionUtil.getConnection(); Statement stmt = con.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
 					Specialization spllist = new Specialization();
@@ -53,7 +55,7 @@ public class Impspecialization implements Interfacespl {
 	public ArrayList<Integer> listSpecialization() throws Dbexception {
 		String sql = "select splzation_id from splzations";
 		ArrayList<Integer> spl = new ArrayList<>();
-		try (Connection con = connections.TestConnections(); Statement stmt = con.createStatement();) {
+		try (Connection con = ConnectionUtil.getConnection(); Statement stmt = con.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
 					int id = rs.getInt("splzation_id");

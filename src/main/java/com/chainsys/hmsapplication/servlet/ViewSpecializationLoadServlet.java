@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Specialization;
-import com.chainsys.hmsapplication.service.ServiceSplzations;
+import com.chainsys.hmsapplication.service.ServiceSpecialization;
 
 @WebServlet("/ViewSpecializationLoadServlet")
 public class ViewSpecializationLoadServlet extends HttpServlet {
@@ -22,7 +22,7 @@ public class ViewSpecializationLoadServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		RequestDispatcher sp = null;
-		ServiceSplzations imp = new ServiceSplzations();
+		ServiceSpecialization imp = new ServiceSpecialization();
 		try {
 			List<Specialization> list = imp.viewspl();
 

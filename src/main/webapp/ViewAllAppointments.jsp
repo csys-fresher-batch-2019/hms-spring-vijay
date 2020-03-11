@@ -28,7 +28,7 @@
 }
 </STYLE>
 <body>
-<!--Impappointment obj = new Impappointment();  -->
+
 <%
 	ArrayList<Appointment> doctorid = (ArrayList)request.getAttribute("list");
 %>

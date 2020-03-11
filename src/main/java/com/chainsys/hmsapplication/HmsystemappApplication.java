@@ -8,7 +8,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@ServletComponentScan("com.chainsys.hmsapplication")
+@ServletComponentScan("com.chainsys.hmsapplication.servlet")
 public class HmsystemappApplication extends SpringBootServletInitializer{
 	
 	@Override

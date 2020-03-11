@@ -28,7 +28,7 @@ public class AppointmentVisitedServlet extends HttpServlet {
 		} catch (Dbexception e) {
 			e.printStackTrace();
 		}
-		RequestDispatcher obj = request.getRequestDispatcher("ViewApprovedAppointments.jsp");
+		RequestDispatcher obj = request.getRequestDispatcher("ViewApprovedAppointmentsLoadServlet");
 		obj.forward(request, response);
 
 	}

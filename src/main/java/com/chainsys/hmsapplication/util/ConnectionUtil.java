@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 
 import com.chainsys.hmsapplication.exception.Dbexception;
 @Component
-public class connections {
-	public static Connection TestConnections() throws Dbexception {
+public class ConnectionUtil {
+	public static Connection getConnection() throws Dbexception {
 		Connection connection;
 		try {
 			TimeZone timeZone = TimeZone.getTimeZone("Asia/Kolkata");
@@ -31,7 +31,7 @@ public class connections {
 	public static Jdbi getJdbi() {
 		Jdbi jdbi = null;
 		try {
-			Connection connection = TestConnections();
+			Connection connection = getConnection();
 			jdbi = Jdbi.create(connection);
 			jdbi.installPlugin(new SqlObjectPlugin());
 		} catch (Exception e) {

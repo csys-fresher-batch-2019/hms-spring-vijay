@@ -25,7 +25,7 @@
 <body>
 <center>
 <h2>GIVE RATING</h2>
-<form action="RatingsServlet">
+<form action="RatingServlet">
 <table>
 <tr><td>Enter patient ID:<td><input type="number" name="patientid" placeholder="enter patient ID" >
 </tr>
