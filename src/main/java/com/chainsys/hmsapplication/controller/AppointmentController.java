@@ -3,6 +3,8 @@ package com.chainsys.hmsapplication.controller;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chainsys.hmsapplication.dao.impl.Impappointment;
+import com.chainsys.hmsapplication.dto.Message;
 import com.chainsys.hmsapplication.exception.Dbexception;
 import com.chainsys.hmsapplication.model.Appointment;
 
@@ -19,8 +22,17 @@ public class AppointmentController {
 	Impappointment app = new Impappointment();
 
 	@PostMapping("/UpdateAppointmentStatus")
-	public void updatestatus(@RequestParam("app_id") int appid) throws Dbexception {
-		app.updateAppointment(appid);
+	public ResponseEntity<?> updatestatus(@RequestParam("app_id") int appid) throws Dbexception {
+		try{
+			app.updateAppointment(appid);
+		}catch(Dbexception e) {
+			e.printStackTrace();
+			Message msg= new Message();
+			msg.setErrorMessage(e.getMessage());
+			return new ResponseEntity<>(msg,HttpStatus.BAD_REQUEST);
+			
+		}
+		return new ResponseEntity<>(HttpStatus.CREATED);
 		
 	}
 

@@ -1,6 +1,7 @@
 package com.chainsys.hmsapplication.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,13 +15,13 @@ import com.chainsys.hmsapplication.model.Specialization;
 @RestController
 @RequestMapping("api")
 
-public class SplzationController {
+public class SpecializationController {
 	
 	Impspecialization Impspl = new Impspecialization();
 	
 	@GetMapping("/viewSpecialization")
-	public ArrayList<Specialization> viewspl(){
-		ArrayList<Specialization> list=null;
+	public List<Specialization> viewspl(){
+		List<Specialization> list=null;
 		
 		try {
 			list=Impspl.viewSpecialization();
